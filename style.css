@@ -1,0 +1,68 @@
+#content {
+    width: 100%;
+/*  width: 70%;
+  left: 500px;
+top: 100px;*/
+  /*margin-left: -35%;*/
+  /*border: red solid 1px;*/
+}
+
+#choices {
+    float: left;
+    /*border: green 1px solid;*/
+}
+
+#choices div {
+    width: 100%;
+}
+
+#choices label {
+    cursor: help;
+}
+
+#bugs {
+    display: table;
+  /*border: blue solid 1px;*/
+  padding-left: 25px;
+  /*float: left;*/
+}
+
+div.odd {
+    background: #FFEEEE;
+}
+
+div .even {
+    background: #EEDDDD;
+}
+
+div span {
+    margin: 40px;
+}
+
+#help {
+    clear:left;
+    background: #EEEEEE;
+    border: 1px black dashed;
+    width: 40%;
+    /*float: right;*/
+    padding: 8px;
+    display: none;
+    
+}
+
+#extra {
+    display: inline;
+    clear: both;
+    list-style-type: none;
+}
+
+#extra div {
+    display: none;
+    background: #E0E0EF;
+    padding: 12px;
+    border: 1px dashed;
+}
+
+/*body {
+color: red;
+}*/

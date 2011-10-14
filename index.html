@@ -1,0 +1,46 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css"><link>
+  <script type="text/javascript" src="bz-0.2.1.js"></script>
+  <script type="text/javascript" src="magic.js"></script>
+</head>
+<body>
+<div id="content">
+  Are you interested in:<br><br>
+<div id="choices">
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="a11y"> <label for="a11y" onmouseenter="switchHelp(event)">Accessibility</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="gfx"> <label for="gfx" onmouseenter="switchHelp(event)">Graphics</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="net"> <label for="net" onclick="switchHelp(event)">Networking</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="js"> <label for="js" onclick="switchHelp(event)">Javascript Engine</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="mobile"> <label for="mobile" onclick="switchHelp(event)">Mobile (Android)</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="ff"> <label for="ff" onclick="switchHelp(event)">Firefox UI</label></div>
+<br><br>
+Do you know: <br><br>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="py"> <label for="py" onmouseenter="switchHelp(event)">Python</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="java"> <label for="java" onmouseenter="switchHelp(event)">Java</label></div>
+  <div><input type="checkbox" onchange="toggleCategory(event)" id="sh"> <label for="sh" onmouseenter="switchHelp(event)">Shell/Makefile/Autoconf</label></div>
+</div>
+
+<div id="bugs">
+  <!--<div id="bugs_content"><div class="even"><span>woooooo</span></div><div class="odd"><span>ablooo ablooo</span></div></div>-->
+</div>
+
+</div>
+
+<ul id="extra">
+<li>
+  <div id="mobile-extra">Extra information for Mobile:<br/>
+    <a href="https://wiki.mozilla.org/Mobile/Get_Involved">Get Involved</a>
+  </div>
+</li>
+<li>
+  <div id="py-extra">Extra information for Python:<br/>
+    <a href="https://wiki.mozilla.org/Auto-tools/New_Contributor/Skills_and_Areas">Get Involved with the Auto-Tools Team</a>
+  </div>
+</li>
+</ul>
+
+<center><div id="help"></div>
+</center>
+</body>
+</html>

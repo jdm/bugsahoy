@@ -1,0 +1,11 @@
+Bugs Ahoy! is an effort to help new Mozilla contributors make sense of the mass
+of bugs that are recommended for newcomers. By performing searches for aggregated
+components based on less granular areas of interest, smaller, more focused lists
+of relevant bugs can be shown, making the experience more pleasant for everybody
+involved.
+
+Authors:
+Josh Matthews <josh@joshmatthews.net>
+
+Special thanks to:
+Heather Arthur (harthur on github) for bz.js
