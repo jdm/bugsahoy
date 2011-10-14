@@ -32,11 +32,11 @@ function rebuildTableContents() {
   orderedBugList = [];
   for (var idx in interestingComponents) {
     var cat = interestingComponents[idx];
-    var uniqueIds = orderedBugList.map(function(bug) bug.id);
+    var uniqueIds = orderedBugList.map(function(bug) { return bug.id; });
     if (cat in resultsCache) {
       orderedBugList.push.apply(orderedBugList,
                                 resultsCache[cat].filter(
-                                  function(bug) uniqueIds.indexOf(bug.id) == -1));
+                                  function(bug) { return uniqueIds.indexOf(bug.id) == -1; }));
     }
   }
   orderedBugList.sort(function(a, b) { return b.id - a.id; }); // sort by ID descending
