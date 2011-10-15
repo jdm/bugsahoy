@@ -1,18 +1,42 @@
 var bugzilla = bz.createClient();
 
-var categoryMapping = {
-  a11y: ['Core!Disability Access APIs'],
-  gfx: ['Core!Graphics', 'Core!GFX: Color Management', 'Core!Canvas: WebGL', 'Core!Canvas'],
-  net: ['Core!Networking', 'Core!Networking: HTTP', 'Core!Networking: FTP',
-        'Core!Networking: Cache', 'Core!Networking: Cookies', 'Core!Networking: File',
-        'Core!Networking: JAR', 'Core!Networking: WebSockets'],
-  mobile: ['Fennec', 'Core!Widget: Android'],
-  js: ['Core!JavaScript Engine'],
-  ff: ['Firefox', 'Toolkit'],
-  py: ['Testing', 'Core!Build Config'],
-  sh: ['Core!Build Config'],
-  java: ['Core!Widget: Android']
-};
+var categoryMapping = {};
+
+function addSearchMapping(cat, searchParams) {
+  if (!(cat in categoryMapping))
+    categoryMapping[cat] = [];
+  categoryMapping[cat].push(searchParams);
+}
+
+function addSimpleMapping(cat, prod, components) {
+  var params = {product: prod};
+  if (components) {
+    if (typeof(components) == "string")
+      components = [components];
+    params.component = components;
+  }
+  addSearchMapping(cat, params);
+}
+
+function addLanguageMapping(cat, language) {
+  addSearchMapping(cat, {status_whiteboard: 'lang=' + language});
+}
+
+addSimpleMapping('a11y', 'Core', 'Disability Access APIs');
+addSimpleMapping('gfx', 'Core', ['Graphics', 'GFX: Color Management', 'Canvas: WebGL', 'Canvas', 'Imagelib']);
+addSimpleMapping('net', 'Core', ['Networking', 'Networking: HTTP', 'Networking: Cookies', 'Networking: File',
+                                 'Networking: JAR', 'Networking: WebSockets']);
+addSimpleMapping('mobile', 'Fennec');
+addSimpleMapping('mobile', 'Core', 'Widget: Android');
+addSimpleMapping('jseng', 'Core', ['Javascript Engine', 'js-ctypes']);
+addSimpleMapping('ff', 'Firefox');
+addSimpleMapping('ff', 'Toolkit');
+
+addLanguageMapping('py', 'python');
+addLanguageMapping('sh', 'shell');
+addLanguageMapping('java', 'java');
+addLanguageMapping('js', 'js');
+addLanguageMapping('cpp', 'c++');
 
 var helpText = {
   a11y: "In human-computer interaction, computer accessibility (also known as Accessible computing) refers to the accessibility of a computer system to all people, regardless of disability or severity of impairment. It is largely a software concern; when software, hardware, or a combination of hardware and software, is used to enable use of a computer by a person with a disability or impairment, this is known as Assistive Technology.",
@@ -65,32 +89,46 @@ function retrieveResults(category) {
   if (category in resultsCache) {
     rebuildTableContents();
     return;
-  }
+  }  
 
   var mapping = categoryMapping[category];
   var expectedResults = mapping.length;
-  for (var idx in mapping) {
-    var params = mapping[idx].split('!');
-    var searchParams = {whiteboard: 'mentor=',
-                        whiteboard_type: 'contains',
-                        product: params[0],
-                        bug_status: ["NEW","ASSIGNED,REOPENED"]};
-    if (params.length != 1) {
-      searchParams.component = params[1];
+
+  function processResult(msg, results) {
+    if (!(category in unfinishedResults))
+      unfinishedResults[category] = [];
+    unfinishedResults[category].push.apply(unfinishedResults[category],
+                                           results);
+    expectedResults--;
+    if (expectedResults == 0) {
+      unfinishedResults[category] =
+        unfinishedResults[category].sort(function(a, b) { return b.id - a.id; });
+      resultsCache[category] = [unfinishedResults[category][0]];
+      for (var i = 1; i < unfinishedResults[category].length; i++) {
+        if (unfinishedResults[category][i].id != unfinishedResults[category][i-1].id)
+          resultsCache[category].push(unfinishedResults[category][i]);
+      }
+      delete unfinishedResults[category];
+      rebuildTableContents();
     }
-    bugzilla.searchBugs(searchParams,
-      function(msg, results) {
-        if (!(category in unfinishedResults))
-          unfinishedResults[category] = [];
-        unfinishedResults[category].push.apply(unfinishedResults[category],
-                                               results);
-        expectedResults--;
-        if (expectedResults == 0) {
-          resultsCache[category] = unfinishedResults[category];
-          delete unfinishedResults[category];
-          rebuildTableContents();
-        }
-      });
+  }
+
+  for (var i = 0; i < mapping.length; i++) {
+    var searchParams = {status_whiteboard: 'mentor=',
+                        whiteboard_type: 'contains_all',
+                        bug_status: ["NEW","ASSIGNED","REOPENED"],
+                        product: ''};
+    for (var param in mapping[i]) {
+      if (!(param in searchParams))
+        searchParams[param] = [];
+      if (typeof(searchParams[param]) == "string")
+        searchParams[param] += " " + mapping[i][param];
+      else {
+        for (var j = 0; j < mapping[i][param].length; j++)
+          searchParams[param].push(mapping[i][param][j]);
+      }
+    }
+    bugzilla.searchBugs(searchParams, processResult);
   }
 }
 
