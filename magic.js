@@ -84,10 +84,26 @@ function rebuildTableContents() {
     link.appendChild(text);
     inner.appendChild(link);
     inner.appendChild(text2);
-    elem.setAttribute('class', ["even", "odd"][idx % 2]);
+    //elem.setAttribute('class', ["even", "odd"][idx % 2] + " bug");
+    elem.setAttribute('class', "bug");
     content.appendChild(elem);
   }
+  if (orderedBugList.length == 0 || interestingComponents.length == 0) {
+    var elem = document.createElement('div');
+    var inner = document.createElement('span');
+    var text = document.createTextNode(interestingComponents.length == 0 ?
+                                       'No categories specified' :
+                                       'No bugs found');
+    inner.appendChild(text);
+    elem.appendChild(inner);
+    content.appendChild(elem);
+    elem.setAttribute('class', 'bug');
+  }
   t.appendChild(content);
+  
+  document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
+
+  document.getElementById('throbber').style.visibility = "hidden";
 }
 
 function retrieveResults(category) {
@@ -95,6 +111,8 @@ function retrieveResults(category) {
     rebuildTableContents();
     return;
   }  
+
+  document.getElementById('throbber').style.visibility = "visible";
 
   var mapping = categoryMapping[category];
   var expectedResults = mapping.length;
@@ -108,7 +126,9 @@ function retrieveResults(category) {
     if (expectedResults == 0) {
       unfinishedResults[category] =
         unfinishedResults[category].sort(function(a, b) { return b.id - a.id; });
-      resultsCache[category] = [unfinishedResults[category][0]];
+      resultsCache[category] = [];
+      if (unfinishedResults[category].length > 0)
+        resultsCache[category].push(unfinishedResults[category][0]);
       for (var i = 1; i < unfinishedResults[category].length; i++) {
         if (unfinishedResults[category][i].id != unfinishedResults[category][i-1].id)
           resultsCache[category].push(unfinishedResults[category][i]);
@@ -158,8 +178,8 @@ function toggleCategory(e)
 
 function switchHelp(e)
 {
-  var id = e.target.getAttribute('for');
+  /*var id = e.target.getAttribute('for');
   var box = document.getElementById("help");
   box.innerHTML = helpText[id];
-  box.style.display = "table";
+  box.style.display = "table";*/
 }

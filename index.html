@@ -41,23 +41,41 @@ Do you know: <br><br>
 </div>
 
 <div id="bugs">
-  <div id="bugs_content"><div class="even"><span>woooooo</span></div><div class="odd"><span>ablooo ablooo</span></div></div>
+  <div id="header">Results <span id="total"></span> <img id="throbber" src="loading.gif" style="visibility: hidden; float: right"></div>
+  <div id="bugs_content">
+    <div class="bug"><span>No categories specified.</span></div>
+  </div>
 </div>
 
 </div>
 
 <ul id="extra">
-<li>
-  <div id="mobile-extra">Extra information for Mobile:<br/>
-    <a href="https://wiki.mozilla.org/Mobile/Get_Involved">Get Involved</a>
-  </div>
-</li>
-<li>
-  <div id="py-extra">Extra information for Python:<br/>
-    <a href="https://wiki.mozilla.org/Auto-tools/New_Contributor/Skills_and_Areas">Get Involved with the Auto-Tools Team</a>
-  </div>
-</li>
 </ul>
+
+<script>
+  function addExtra(cat, header, content) {
+    var extra = document.getElementById('extra');
+    var elem = document.createElement('li');
+    elem.setAttribute('id', cat + '-extra');
+    var h = document.createElement('div');
+    h.setAttribute('class', 'extra_header');
+    var tn = document.createTextNode(header);
+    h.appendChild(tn);
+    elem.appendChild(h);
+    var c = document.createElement('div');
+    c.setAttribute('class', 'extra_body');
+    //tn = document.createTextNode(content);
+    //c.appendChild(tn);
+    c.innerHTML = content;
+    elem.appendChild(c);
+    extra.appendChild(elem);
+  }
+
+  addExtra('mobile', 'Extra information for Mobile', '<a href="https://wiki.mozilla.org/Mobile/Get_Involved">Get involved with the Mobile team</a>');
+  addExtra('py', 'Extra information for Python', '<a href="https://wiki.mozilla.org/Auto-tools/New_Contributor/Skills_and_Areas">Get involved with the Auto-Tools team</a>');
+  addExtra('gfx', 'Extra information for Graphics', '<a href="https://wiki.mozilla.org/Platform/GFX/Contribute">Get involved with the Graphics team</a>');
+  addExtra('jseng', 'Extra information for the JS engine', '<a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey">Get involved with the JS engine team</a>');
+</script>
 
 <center><div id="help"></div>
 </center>
