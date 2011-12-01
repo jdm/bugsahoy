@@ -66,6 +66,7 @@ div .bug {
 
 #extra {
     list-style-type: none;
+    margin-top: 0;
 }
 
 #extra li {
