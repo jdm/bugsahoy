@@ -27,16 +27,21 @@ addSimpleMapping('gfx', 'Core', ['Graphics', 'GFX: Color Management', 'Canvas: W
 addSimpleMapping('net', 'Core', ['Networking', 'Networking: HTTP', 'Networking: Cookies', 'Networking: File',
                                  'Networking: JAR', 'Networking: WebSockets']);
 addSimpleMapping('mobile', 'Fennec');
+addSimpleMapping('mobile', 'Fennec Native');
 addSimpleMapping('mobile', 'Core', 'Widget: Android');
 addSimpleMapping('jseng', 'Core', ['Javascript Engine', 'js-ctypes']);
+addSimpleMapping('media', 'Core', 'Video/Audio');
 addSimpleMapping('ff', 'Firefox');
 addSimpleMapping('ff', 'Toolkit');
 
 addLanguageMapping('py', 'python');
 addLanguageMapping('sh', 'shell');
+addSimpleMapping('java', 'Core', 'Widget: Android');
 addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
 addLanguageMapping('cpp', 'c++');
+addLanguageMapping('html', 'html');
+addLanguageMapping('html', 'css');
 
 var helpText = {
   a11y: "In human-computer interaction, computer accessibility (also known as Accessible computing) refers to the accessibility of a computer system to all people, regardless of disability or severity of impairment. It is largely a software concern; when software, hardware, or a combination of hardware and software, is used to enable use of a computer by a person with a disability or impairment, this is known as Assistive Technology.",
