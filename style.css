@@ -98,3 +98,35 @@ div .bug {
       padding-left: 14px;
       padding-right: 14px;
 }
+
+#footer {
+    clear: both;
+    float: right;
+    font-family: Georgia, serif;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+#footer a {
+    color: black;
+}
+
+#footer span {
+    color: grey;
+}
+
+#total-header {
+   font-size: 2.5em;
+   font-weight: bold;
+   text-align: center;
+   margin: 40px 0 30px 0;
+   font-family: Helvetica, sans-serif;
+}
+
+#total-header span {
+    font-size: 0.5em;
+    color: grey;
+    font-family: Georgia, serif;
+    font-weight: normal;
+}
+
