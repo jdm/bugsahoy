@@ -18,6 +18,18 @@ function addSimpleMapping(cat, prod, components) {
   addSearchMapping(cat, params);
 }
 
+function timeFromModified(lastChangeTime){
+	var lastModified =new Date(lastChangeTime) //Month is 0-11 in JavaScript
+	
+	today=new Date();
+	//Get 1 day in milliseconds
+	var one_day=1000*60*60*24;
+
+	//Calculate difference btw the two dates, and convert to days
+	return(Math.ceil((today.getTime()-lastModified.getTime())/(one_day)));
+
+}
+
 function addLanguageMapping(cat, language) {
   addSearchMapping(cat, {status_whiteboard: 'lang=' + language});
 }
@@ -85,7 +97,26 @@ function rebuildTableContents() {
     inner.appendChild(link);
     inner.appendChild(text2);
     //elem.setAttribute('class', ["even", "odd"][idx % 2] + " bug");
-    elem.setAttribute('class', "bug");
+
+    var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
+	
+	//console.log(orderedBugList[idx].last_change_time);
+    // easy way to find out if the bug has someone assigned to it
+	// need to find out when the bug was modified and how long ago that was from today
+    if (orderedBugList[idx].assigned_to.name !== 'nobody') {
+		elem.setAttribute('class', "bug");
+	}else{
+    	if(daysOld <= 5){
+			elem.setAttribute('class', "bug green");
+		}else if(daysOld <= 10){
+			elem.setAttribute('class', "bug blue");
+		}else if(daysOld <= 20){
+			elem.setAttribute('class', "bug orange");
+		}else{
+			elem.setAttribute('class', "bug red");
+		}
+	}
+	
     content.appendChild(elem);
   }
   if (orderedBugList.length == 0 || interestingComponents.length == 0) {
