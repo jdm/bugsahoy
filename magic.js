@@ -104,7 +104,7 @@ function rebuildTableContents() {
     // easy way to find out if the bug has someone assigned to it
 	// need to find out when the bug was modified and how long ago that was from today
     if (orderedBugList[idx].assigned_to.name !== 'nobody') {
-		elem.setAttribute('class', "<bug></bug>");
+		elem.setAttribute('class', "bug");
 	}else{
     	if(daysOld <= 5){
 			elem.setAttribute('class', "bug green");
