@@ -18,16 +18,11 @@ function addSimpleMapping(cat, prod, components) {
   addSearchMapping(cat, params);
 }
 
-function timeFromModified(lastChangeTime){
-	var lastModified =new Date(lastChangeTime) //Month is 0-11 in JavaScript
-	
-	today=new Date();
-	//Get 1 day in milliseconds
-	var one_day=1000*60*60*24;
-
-	//Calculate difference btw the two dates, and convert to days
-	return(Math.ceil((today.getTime()-lastModified.getTime())/(one_day)));
-
+function timeFromModified(lastChangeTime) {
+	var lastModified = new Date(lastChangeTime);
+	today = new Date();
+	var one_day = 1000*60*60*24;
+	return(Math.ceil((today.getTime() - lastModified.getTime()) / (one_day)));
 }
 
 function addLanguageMapping(cat, language) {
@@ -100,22 +95,9 @@ function rebuildTableContents() {
 
     var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
 	
-	//console.log(orderedBugList[idx].last_change_time);
-    // easy way to find out if the bug has someone assigned to it
-	// need to find out when the bug was modified and how long ago that was from today
-    if (orderedBugList[idx].assigned_to.name !== 'nobody') {
-		elem.setAttribute('class', "bug");
-	}else{
-    	if(daysOld <= 5){
-			elem.setAttribute('class', "bug green");
-		}else if(daysOld <= 10){
-			elem.setAttribute('class', "bug blue");
-		}else if(daysOld <= 20){
-			elem.setAttribute('class', "bug orange");
-		}else{
-			elem.setAttribute('class', "bug red");
-		}
-	}
+   	elem.setAttribute('class', "bug moreInfo");
+   	elem.setAttribute('alt', daysOld + " Days Since Last Comment<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
+
 	
     content.appendChild(elem);
   }
@@ -135,7 +117,29 @@ function rebuildTableContents() {
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   document.getElementById('throbber').style.visibility = "hidden";
-}
+  jQuery('.moreInfo').qtip({
+      content: {
+          attr: 'alt'
+      },
+      position: {
+          my: 'bottom left',
+          target: 'mouse',
+          viewport: $(window),
+          // Keep it on-screen at all times if possible
+          adjust: {
+              x: 10,
+              y: 10
+          }
+      },
+      hide: {
+          fixed: true
+          // Helps to prevent the tooltip from hiding ocassionally when tracking!
+      },
+		   style: {
+		      classes: 'ui-tooltip-dark ui-tooltip-cluetip'
+		   }
+  })
+  }
 
 function retrieveResults(category) {
   if (category in resultsCache) {
@@ -214,3 +218,5 @@ function switchHelp(e)
   box.innerHTML = helpText[id];
   box.style.display = "table";*/
 }
+
+

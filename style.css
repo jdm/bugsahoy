@@ -131,21 +131,3 @@ div .bug {
     font-weight: normal;
 }
 
-
-.bug.red{
-	background:#333;
-	color:#fff;
-}
-.bug.orange{
-	background:#666;
-	color:#fff;
-}
-.bug.blue{
-	background:#999;
-	color:#fff;
-}
-.bug.green{
-	background:#ccc;
-	color:#fff;
-}
-
