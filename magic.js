@@ -117,28 +117,19 @@ function rebuildTableContents() {
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   document.getElementById('throbber').style.visibility = "hidden";
-  jQuery('.moreInfo').qtip({
-      content: {
-          attr: 'alt'
-      },
-      position: {
-          my: 'bottom left',
-          target: 'mouse',
-          viewport: $(window),
-          // Keep it on-screen at all times if possible
-          adjust: {
-              x: 10,
-              y: 10
-          }
-      },
-      hide: {
-          fixed: true
-          // Helps to prevent the tooltip from hiding ocassionally when tracking!
-      },
-		   style: {
-		      classes: 'ui-tooltip-dark ui-tooltip-cluetip'
-		   }
-  })
+  jQuery('.moreInfo').each(function(count){
+          jQuery(this).qtip({
+              content: jQuery(this).attr('alt'),
+			  position: {
+				  my: 'bottom right',
+				  at: 'top left',
+				  target: jQuery('.moreInfo span a:eq('+count+')')
+			  },
+		   		style: {
+		   			classes: 'ui-tooltip-dark ui-tooltip-cluetip'
+		   		}
+          });
+      });
   }
 
 function retrieveResults(category) {
