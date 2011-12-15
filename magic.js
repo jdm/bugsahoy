@@ -18,6 +18,13 @@ function addSimpleMapping(cat, prod, components) {
   addSearchMapping(cat, params);
 }
 
+function timeFromModified(lastChangeTime) {
+	var lastModified = new Date(lastChangeTime);
+	today = new Date();
+	var one_day = 1000*60*60*24;
+	return(Math.ceil((today.getTime() - lastModified.getTime()) / (one_day)));
+}
+
 function addLanguageMapping(cat, language) {
   addSearchMapping(cat, {status_whiteboard: 'lang=' + language});
 }
@@ -85,7 +92,13 @@ function rebuildTableContents() {
     inner.appendChild(link);
     inner.appendChild(text2);
     //elem.setAttribute('class', ["even", "odd"][idx % 2] + " bug");
-    elem.setAttribute('class', "bug");
+
+    var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
+	
+   	elem.setAttribute('class', "bug moreInfo");
+   	elem.setAttribute('alt', daysOld + " Days Since Last Comment<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
+
+	
     content.appendChild(elem);
   }
   if (orderedBugList.length == 0 || interestingComponents.length == 0) {
@@ -104,7 +117,20 @@ function rebuildTableContents() {
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   document.getElementById('throbber').style.visibility = "hidden";
-}
+  jQuery('.moreInfo').each(function(count){
+          jQuery(this).qtip({
+              content: jQuery(this).attr('alt'),
+			  position: {
+				  my: 'bottom right',
+				  at: 'top left',
+				  target: jQuery('.moreInfo span a:eq('+count+')')
+			  },
+		   		style: {
+		   			classes: 'ui-tooltip-dark ui-tooltip-cluetip'
+		   		}
+          });
+      });
+  }
 
 function retrieveResults(category) {
   if (category in resultsCache) {
@@ -183,3 +209,5 @@ function switchHelp(e)
   box.innerHTML = helpText[id];
   box.style.display = "table";*/
 }
+
+
