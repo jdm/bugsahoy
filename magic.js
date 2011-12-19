@@ -119,15 +119,20 @@ function rebuildTableContents() {
   document.getElementById('throbber').style.visibility = "hidden";
   jQuery('.moreInfo').each(function(count){
           jQuery(this).qtip({
+			  
               content: jQuery(this).attr('alt'),
 			  position: {
 				  my: 'bottom right',
-				  at: 'top left',
-				  target: jQuery('.moreInfo span a:eq('+count+')')
+				  at: 'bottom left',
+				  target: jQuery('.moreInfo:eq('+count+')')
 			  },
-		   		style: {
-		   			classes: 'ui-tooltip-dark ui-tooltip-cluetip'
-		   		}
+			  style: {
+			        classes: 'ui-tooltip-light ui-tooltip-shadow'
+			     },
+				     hide: {
+				           fixed: true,
+						   delay: 50
+				     }
           });
       });
   }
