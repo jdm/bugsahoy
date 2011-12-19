@@ -122,8 +122,8 @@ function rebuildTableContents() {
 			  
               content: jQuery(this).attr('alt'),
 			  position: {
-				  my: 'bottom right',
-				  at: 'bottom left',
+				  my: 'center left',
+				  at: 'center right',
 				  target: jQuery('.moreInfo:eq('+count+')')
 			  },
 			  style: {
