@@ -96,7 +96,7 @@ function rebuildTableContents() {
     var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
 	
    	elem.setAttribute('class', "bug moreInfo");
-   	elem.setAttribute('alt', daysOld + " Days Since Last Comment<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
+   	elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
 
 	
     content.appendChild(elem);
