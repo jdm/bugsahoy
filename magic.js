@@ -94,11 +94,11 @@ function rebuildTableContents() {
     //elem.setAttribute('class', ["even", "odd"][idx % 2] + " bug");
 
     var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
-	
+
    	elem.setAttribute('class', "bug moreInfo");
    	elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
 
-	
+
     content.appendChild(elem);
   }
   if (orderedBugList.length == 0 || interestingComponents.length == 0) {
@@ -117,22 +117,22 @@ function rebuildTableContents() {
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   document.getElementById('throbber').style.visibility = "hidden";
+  
   jQuery('.moreInfo').each(function(count){
           jQuery(this).qtip({
-			  
               content: jQuery(this).attr('alt'),
-			  position: {
-				  my: 'center left',
-				  at: 'center right',
-				  target: jQuery('.moreInfo:eq('+count+')')
-			  },
-			  style: {
-			        classes: 'ui-tooltip-light ui-tooltip-shadow'
-			     },
-				     hide: {
-				           fixed: true,
-						   delay: 50
-				     }
+              position: {
+                  my: 'center left',
+                  at: 'center right',
+                  target: jQuery('.moreInfo:eq('+count+')')
+              },
+              style: {
+                  classes: 'ui-tooltip-light ui-tooltip-shadow'
+              },
+              hide: {
+                  fixed: true,
+                  delay: 50
+              }
           });
       });
   }
