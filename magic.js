@@ -94,11 +94,15 @@ function rebuildTableContents() {
     //elem.setAttribute('class', ["even", "odd"][idx % 2] + " bug");
 
     var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
-	
-   	elem.setAttribute('class', "bug moreInfo");
-   	elem.setAttribute('alt', daysOld + " Days Since Last Comment<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
 
-	
+    elem.setAttribute('class', "bug moreInfo");
+    if (daysOld !== 1) {
+        elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+    }else{
+        elem.setAttribute('alt', daysOld + " day since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+    }
+
+
     content.appendChild(elem);
   }
   if (orderedBugList.length == 0 || interestingComponents.length == 0) {
@@ -117,17 +121,23 @@ function rebuildTableContents() {
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   document.getElementById('throbber').style.visibility = "hidden";
+  
   jQuery('.moreInfo').each(function(count){
           jQuery(this).qtip({
               content: jQuery(this).attr('alt'),
-			  position: {
-				  my: 'bottom right',
-				  at: 'top left',
-				  target: jQuery('.moreInfo span a:eq('+count+')')
-			  },
-		   		style: {
-		   			classes: 'ui-tooltip-dark ui-tooltip-cluetip'
-		   		}
+              position: {
+                  my: 'center left',
+                  at: 'center right',
+                  target: jQuery('.moreInfo:eq('+count+')')
+              },
+              style: {
+                  classes: 'ui-tooltip-light ui-tooltip-shadow'
+              },
+              hide: {
+                  fixed: true,
+                  delay: 50,
+                  leave: true
+              }
           });
       });
   }
