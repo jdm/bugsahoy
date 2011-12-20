@@ -1,24 +1,27 @@
 <html>
 <head>
   <title>Bugs Ahoy - find relevant Mozilla bugs</title>
-  <link rel="stylesheet" type="text/css" href="style.css"></link>
-  <link rel="stylesheet" type="text/css" href="uitooltip.min.css"></link>
+<!--UHOH-->
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="uitooltip.min.css">
   
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="uitooltip.min.js"></script>
   <script type="text/javascript" src="bz-0.2.1.js"></script>
   <script type="text/javascript" src="magic.js"></script>
+<!--OHNO-->
 </head>
 <body>
-<div id="total-header">
-Bugs Ahoy! <br><span><i>these bugs are relevant to my interests</i></span>
+<!--OHDEAR-->
+<div id="ba-total-header">
+Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
 </div>
-<div id="content">
+<div id="ba-content">
   Are you interested in:<br><br>
-<div id="choices">
+<div id="ba-choices">
   <script>
     function addCategories(cats) {
-      var choices = document.getElementById('choices');
+      var choices = document.getElementById('ba-choices');
       for (var i = 0; i < cats.length; i++) {
         var elem = document.createElement('div');
         var inp = document.createElement('input');
@@ -49,7 +52,7 @@ Do you know: <br><br>
 </div>
 
 <div id="bugs">
-  <div id="header">Results <span id="total"></span> <img id="throbber" src="loading.gif" style="visibility: hidden; float: right"></div>
+  <div id="ba-header">Results <span id="total"></span> <img id="throbber" src="loading.gif" style="visibility: hidden; float: right"></div>
   <div id="bugs_content">
     <div class="bug"><span>No categories specified.</span></div>
   </div>
@@ -57,21 +60,21 @@ Do you know: <br><br>
 
 </div>
 
-<ul id="extra">
+<ul id="ba-extra">
 </ul>
 
 <script>
   function addExtra(cat, header, content) {
-    var extra = document.getElementById('extra');
+    var extra = document.getElementById('ba-extra');
     var elem = document.createElement('li');
     elem.setAttribute('id', cat + '-extra');
     var h = document.createElement('div');
-    h.setAttribute('class', 'extra_header');
+    h.setAttribute('class', 'ba-extra_header');
     var tn = document.createTextNode(header);
     h.appendChild(tn);
     elem.appendChild(h);
     var c = document.createElement('div');
-    c.setAttribute('class', 'extra_body');
+    c.setAttribute('class', 'ba-extra_body');
     //tn = document.createTextNode(content);
     //c.appendChild(tn);
     c.innerHTML = content;
@@ -85,11 +88,11 @@ Do you know: <br><br>
   addExtra('jseng', 'Extra information for the JS engine', '<a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey">Get involved with the JS engine team</a>');
 </script>
 
-<div id="footer">
+<div id="ba-footer">
 <i>Bugs Ahoy!</i> <span>is written by <a href="https://mozillians.org/en-US/u/cba2fc3233">Josh Matthews</a>
 (get the <a href="http://github.com/jdm/bugsahoy/">source</a>!)</span>
 </div>
-
+<!--OHHDEAR-->
 <center><div id="help"></div>
 </center>
 </body>

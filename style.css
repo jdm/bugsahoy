@@ -4,7 +4,7 @@ body {
     color: #111;
 }
 
-#content {
+#ba-content {
     width: 100%;
 /*  width: 70%;
   left: 500px;
@@ -13,17 +13,18 @@ top: 100px;*/
   /*border: red solid 1px;*/
 }
 
-#choices {
+#ba-choices {
     float: left;
     /*border: green 1px solid;*/
 }
 
-#choices div {
+#ba-choices div {
     width: 100%;
 }
 
-#choices label {
+#ba-choices label {
     cursor: help;
+    margin: 0.5em;
 }
 
 #bugs {
@@ -35,7 +36,7 @@ top: 100px;*/
   border-radius: 4px 4px 0 0;
 }
 
-#header {
+#ba-header {
       background-color: #DEF0F7;
       overflow: hidden;
       font-size: 1.1em;
@@ -53,23 +54,21 @@ div .bug {
       padding-left: 14px;
 }
 
-#help {
-    /*clear:left;*/
+/*#help {
     background: #F9F9F9;
     border: 1px black dashed;
     width: 40%;
     float: right;
     padding: 8px;
-    display: none;
-    
-}
+    display: none;   
+}*/
 
-#extra {
+#ba-extra {
     list-style-type: none;
     margin-top: 0;
 }
 
-#extra li {
+#ba-extra li {
   float:left;
   font-size: 1.02em;
   margin-left: 5.2em;  
@@ -79,9 +78,11 @@ div .bug {
   width: 25%;
   display: none;
   margin-bottom: 2em;
+  background: none;
+  padding-left: 0px;
 }
 
-.extra_header {
+.ba-extra_header {
       background-color: #E4E4E4;
       overflow: hidden;
       font-size: 1.1em;
@@ -91,7 +92,7 @@ div .bug {
       font-weight: bold;
 }
 
-.extra_body {
+.ba-extra_body {
       padding-bottom: 1em;
       padding-top: 1em;
       border-bottom: 1px solid #CCC;
@@ -100,7 +101,7 @@ div .bug {
       padding-right: 14px;
 }
 
-#footer {
+#ba-footer {
     clear: both;
     float: right;
     font-family: Georgia, serif;
@@ -108,15 +109,15 @@ div .bug {
     margin-bottom: 20px;
 }
 
-#footer a {
+#ba-footer a {
     color: black;
 }
 
-#footer span {
+#ba-footer span {
     color: gray;
 }
 
-#total-header {
+#ba-total-header {
    font-size: 2.5em;
    font-weight: bold;
    text-align: center;
@@ -124,7 +125,7 @@ div .bug {
    font-family: Helvetica, sans-serif;
 }
 
-#total-header span {
+#ba-total-header div {
     font-size: 0.5em;
     color: gray;
     font-family: Georgia, serif;
