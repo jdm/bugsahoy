@@ -95,8 +95,12 @@ function rebuildTableContents() {
 
     var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
 
-   	elem.setAttribute('class', "bug moreInfo");
-   	elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.name);
+    elem.setAttribute('class', "bug moreInfo");
+    if (daysOld !== 1) {
+        elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+    }else{
+        elem.setAttribute('alt', daysOld + " day since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+    }
 
 
     content.appendChild(elem);
@@ -131,7 +135,8 @@ function rebuildTableContents() {
               },
               hide: {
                   fixed: true,
-                  delay: 50
+                  delay: 50,
+                  leave: true
               }
           });
       });
