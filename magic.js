@@ -150,7 +150,7 @@ function rebuildTableContents() {
   document.getElementById('throbber').style.visibility = "hidden";
   
   jQuery('.moreInfo').each(function(count){
-          jQuery(this).qtip({
+          var qt = jQuery(this).qtip({
               show: {
                 event: 'focus mouseover'
               },
@@ -168,6 +168,12 @@ function rebuildTableContents() {
                   event: 'blur mouseout',
                   delay: 50,
                   leave: true
+              },
+              events: {
+                  show: function(ev) {
+                    $(qt).qtip("api").elements.tooltip[0].setAttribute('role', 'tooltip');
+                    return true;
+                  }
               }
           });
   });
