@@ -30,7 +30,6 @@ Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
         inp.setAttribute('id', cats[i][0]);
         var lab = document.createElement('label');
         lab.setAttribute('for', cats[i][0]);
-        lab.onmouseenter = switchHelp;
         var text = document.createTextNode(cats[i][1]);
         lab.appendChild(text);
         elem.appendChild(inp);

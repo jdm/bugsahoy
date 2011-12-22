@@ -1,6 +1,10 @@
 var bugzilla = bz.createClient();
 
 var categoryMapping = {};
+var resultOperation = {
+  'union': [],
+  'intersect': []
+};
 
 function addSearchMapping(cat, searchParams) {
   if (!(cat in categoryMapping))
@@ -16,6 +20,7 @@ function addSimpleMapping(cat, prod, components) {
     params.component = components;
   }
   addSearchMapping(cat, params);
+  resultOperation['union'].push(cat);
 }
 
 function timeFromModified(lastChangeTime) {
@@ -27,6 +32,7 @@ function timeFromModified(lastChangeTime) {
 
 function addLanguageMapping(cat, language) {
   addSearchMapping(cat, {status_whiteboard: 'lang=' + language});
+  resultOperation['intersect'].push(cat);
 }
 
 addSimpleMapping('a11y', 'Core', 'Disability Access APIs');
@@ -50,29 +56,50 @@ addLanguageMapping('cpp', 'c++');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
 
-var helpText = {
-  a11y: "In human-computer interaction, computer accessibility (also known as Accessible computing) refers to the accessibility of a computer system to all people, regardless of disability or severity of impairment. It is largely a software concern; when software, hardware, or a combination of hardware and software, is used to enable use of a computer by a person with a disability or impairment, this is known as Assistive Technology.",
-  gfx: "Computer graphics are graphics created using computers and, more generally, the representation and manipulation of image data by a computer with help from specialized software and hardware.<br>The development of computer graphics has made computers easier to interact with, and better for understanding and interpreting many types of data. Developments in computer graphics have had a profound impact on many types of media and have revolutionized animation, movies and the video game industry."
-};
-
 var interestingComponents = [];
 
 var resultsCache = {};
 var unfinishedResults = {};
-var orderedBugList = [];
 
 function rebuildTableContents() {
   var t = document.getElementById('bugs');
   t.removeChild(document.getElementById('bugs_content'));
 
-  orderedBugList = [];
+  function unique_list(list, tr) {
+    var uniq = {};
+    for (var idx in list) {
+      var elem = list[idx];
+      uniq[tr(elem).toString()] = elem;
+    }
+    var new_list = [];
+    for (var prop in uniq) {
+      new_list.push(uniq[prop]);
+    }
+    return new_list;
+  }
+  
+  var orderedBugList = [];
+  var intersector = [];
   for (var idx in interestingComponents) {
     var cat = interestingComponents[idx];
-    var uniqueIds = orderedBugList.map(function(bug) { return bug.id; });
-    if (cat in resultsCache) {
-      orderedBugList.push.apply(orderedBugList,
-                                resultsCache[cat].filter(
-                                  function(bug) { return uniqueIds.indexOf(bug.id) == -1; }));
+    if (!(cat in resultsCache))
+      continue;
+    if (resultOperation['union'].indexOf(cat) != -1) {
+      orderedBugList = orderedBugList.concat(resultsCache[cat]);
+      orderedBugList = unique_list(orderedBugList, function(bug) { return bug.id; });
+    } else if (resultOperation['intersect'].indexOf(cat) != -1) {
+      intersector = intersector.concat(resultsCache[cat]);
+      intersector = unique_list(intersector, function(bug) { return bug.id; });
+    }
+  }
+  if (intersector.length > 0) {    
+    if (orderedBugList.length > 0) {
+      var intersect_ids = intersector.map(function(bug) { return bug.id; });
+      orderedBugList = orderedBugList.filter(function(bug) {
+                                               return intersect_ids.indexOf(bug.id) != -1;
+                                             });
+    } else {
+      orderedBugList = intersector;
     }
   }
   orderedBugList.sort(function(a, b) { return b.id - a.id; }); // sort by ID descending
@@ -92,7 +119,6 @@ function rebuildTableContents() {
     link.appendChild(text);
     inner.appendChild(link);
     inner.appendChild(text2);
-    //elem.setAttribute('class', ["even", "odd"][idx % 2] + " bug");
 
     var daysOld = timeFromModified(orderedBugList[idx].last_change_time);
 
@@ -124,7 +150,6 @@ function rebuildTableContents() {
   document.getElementById('throbber').style.visibility = "hidden";
   
   jQuery('.moreInfo').each(function(count){
-      var self = this;
           jQuery(this).qtip({
               show: {
                 event: 'focus mouseover'
@@ -145,8 +170,8 @@ function rebuildTableContents() {
                   leave: true
               }
           });
-      });
-  }
+  });
+}
 
 function retrieveResults(category) {
   if (category in resultsCache) {
@@ -217,13 +242,4 @@ function toggleCategory(e)
     rebuildTableContents();
   }
 }
-
-function switchHelp(e)
-{
-  /*var id = e.target.getAttribute('for');
-  var box = document.getElementById("help");
-  box.innerHTML = helpText[id];
-  box.style.display = "table";*/
-}
-
 
