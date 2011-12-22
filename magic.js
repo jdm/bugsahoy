@@ -151,10 +151,11 @@ function rebuildTableContents() {
   
   jQuery('.moreInfo').each(function(count){
           var qt = jQuery(this).qtip({
+              content: jQuery(this).attr('alt'),
+              prerender: true,
               show: {
                 event: 'focus mouseover'
               },
-              content: jQuery(this).attr('alt'),
               position: {
                   my: 'center left',
                   at: 'center right',
