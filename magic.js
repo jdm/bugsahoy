@@ -84,6 +84,7 @@ function rebuildTableContents() {
     var elem = document.createElement('div');
     var inner = document.createElement('span');
     var link = document.createElement('a');
+    elem.setAttribute('tabindex', '0');
     link.setAttribute('href', "http://bugzil.la/" + bug.id);
     var text = document.createTextNode(bug.id);
     var text2 = document.createTextNode(" - " + bug.summary);
@@ -123,7 +124,11 @@ function rebuildTableContents() {
   document.getElementById('throbber').style.visibility = "hidden";
   
   jQuery('.moreInfo').each(function(count){
+      var self = this;
           jQuery(this).qtip({
+            show: {
+              event: 'focus mouseover'
+            },
               content: jQuery(this).attr('alt'),
               position: {
                   my: 'center left',
@@ -135,6 +140,7 @@ function rebuildTableContents() {
               },
               hide: {
                   fixed: true,
+                  event: 'blur mouseout',
                   delay: 50,
                   leave: true
               }

@@ -53,7 +53,7 @@ Do you know: <br><br>
 
 <div id="bugs">
   <div id="ba-header">Results <span id="total"></span> <img id="throbber" src="loading.gif" style="visibility: hidden; float: right"></div>
-  <div id="bugs_content">
+  <div id="bugs_content" role="log">
     <div class="bug"><span>No categories specified.</span></div>
   </div>
 </div>
@@ -67,6 +67,7 @@ Do you know: <br><br>
   function addExtra(cat, header, content) {
     var extra = document.getElementById('ba-extra');
     var elem = document.createElement('li');
+    elem.setAttribute('aria-live', 'polite');
     elem.setAttribute('id', cat + '-extra');
     var h = document.createElement('div');
     h.setAttribute('class', 'ba-extra_header');
