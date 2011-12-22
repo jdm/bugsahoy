@@ -126,9 +126,9 @@ function rebuildTableContents() {
   jQuery('.moreInfo').each(function(count){
       var self = this;
           jQuery(this).qtip({
-            show: {
-              event: 'focus mouseover'
-            },
+              show: {
+                event: 'focus mouseover'
+              },
               content: jQuery(this).attr('alt'),
               position: {
                   my: 'center left',
