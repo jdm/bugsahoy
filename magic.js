@@ -1,26 +1,28 @@
 var bugzilla = bz.createClient();
 
 var categoryMapping = {};
-var resultOperation = {
-  'union': [],
-  'intersect': []
-};
+var groups = {};
 
-function addSearchMapping(cat, searchParams) {
+function addSearchMapping(group, cat, searchParams) {
   if (!(cat in categoryMapping))
     categoryMapping[cat] = [];
   categoryMapping[cat].push(searchParams);
+
+  if (!groups[group]) {
+    groups[group] = [];
+  }
+
+  groups[group].push(cat);
 }
 
-function addSimpleMapping(cat, prod, components) {
+function addSimpleMapping(group, cat, prod, components) {
   var params = {product: prod};
   if (components) {
     if (typeof(components) == "string")
       components = [components];
     params.component = components;
   }
-  addSearchMapping(cat, params);
-  resultOperation['union'].push(cat);
+  addSearchMapping(group, cat, params);
 }
 
 function timeFromModified(lastChangeTime) {
@@ -30,31 +32,50 @@ function timeFromModified(lastChangeTime) {
 	return(Math.ceil((today.getTime() - lastModified.getTime()) / (one_day)));
 }
 
-function addLanguageMapping(cat, language) {
-  addSearchMapping(cat, {status_whiteboard: 'lang=' + language});
-  resultOperation['intersect'].push(cat);
+function addComponentMapping(cat, prod, components) {
+  addSimpleMapping('components', cat, prod, components);
 }
 
-addSimpleMapping('a11y', 'Core', 'Disability Access APIs');
-addSimpleMapping('gfx', 'Core', ['Graphics', 'GFX: Color Management', 'Canvas: WebGL', 'Canvas', 'Imagelib']);
-addSimpleMapping('net', 'Core', ['Networking', 'Networking: HTTP', 'Networking: Cookies', 'Networking: File',
-                                 'Networking: JAR', 'Networking: WebSockets']);
-addSimpleMapping('mobile', 'Fennec');
-addSimpleMapping('mobile', 'Fennec Native');
-addSimpleMapping('mobile', 'Core', 'Widget: Android');
-addSimpleMapping('jseng', 'Core', ['Javascript Engine', 'js-ctypes']);
-addSimpleMapping('media', 'Core', 'Video/Audio');
-addSimpleMapping('ff', 'Firefox');
-addSimpleMapping('ff', 'Toolkit');
+function addLanguageMapping(cat, language) {
+  addSearchMapping('langs', cat, {status_whiteboard: 'lang=' + language});
+}
+
+addComponentMapping('a11y', 'Core', 'Disability Access APIs');
+addComponentMapping('gfx', 'Core',
+                    ['Graphics',
+                     'GFX: Color Management',
+                     'Canvas: WebGL',
+                     'Canvas',
+                     'Imagelib']
+                    );
+addComponentMapping('net', 'Core',
+                    ['Networking',
+                     'Networking: HTTP',
+                     'Networking: Cookies',
+                     'Networking: File',
+                     'Networking: JAR',
+                     'Networking: WebSockets']
+                    );
+addComponentMapping('mobile', 'Fennec');
+addComponentMapping('mobile', 'Fennec Native');
+addComponentMapping('mobile', 'Core', 'Widget: Android');
+addComponentMapping('jseng', 'Core', ['Javascript Engine', 'js-ctypes']);
+addComponentMapping('media', 'Core', 'Video/Audio');
+addComponentMapping('ff', 'Firefox');
+addComponentMapping('ff', 'Toolkit');
 
 addLanguageMapping('py', 'python');
 addLanguageMapping('sh', 'shell');
-addSimpleMapping('java', 'Core', 'Widget: Android');
+addSimpleMapping('langs', 'java', 'Core', 'Widget: Android');
 addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
 addLanguageMapping('cpp', 'c++');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
+
+addSearchMapping('ownership', 'unowned',
+                 {assigned_to: ['nobody@mozilla.org', 'general@js.bugs']}
+                );
 
 var interestingComponents = [];
 
@@ -79,29 +100,45 @@ function rebuildTableContents() {
   }
   
   var orderedBugList = [];
-  var intersector = [];
+  var results = {};
+  for (var group in groups) {
+    results[group] = [];
+  }
+
   for (var idx in interestingComponents) {
     var cat = interestingComponents[idx];
     if (!(cat in resultsCache))
       continue;
-    if (resultOperation['union'].indexOf(cat) != -1) {
-      orderedBugList = orderedBugList.concat(resultsCache[cat]);
-      orderedBugList = unique_list(orderedBugList, function(bug) { return bug.id; });
-    } else if (resultOperation['intersect'].indexOf(cat) != -1) {
-      intersector = intersector.concat(resultsCache[cat]);
-      intersector = unique_list(intersector, function(bug) { return bug.id; });
+
+    // Take unions within groups
+    for (var group in groups) {
+      if (groups[group].indexOf(cat) != -1) {
+        var tmp = results[group].concat(resultsCache[cat]);
+        results[group] = unique_list(tmp, function(bug) { return bug.id; });
+      }
     }
   }
-  if (intersector.length > 0) {    
-    if (orderedBugList.length > 0) {
-      var intersect_ids = intersector.map(function(bug) { return bug.id; });
-      orderedBugList = orderedBugList.filter(function(bug) {
-                                               return intersect_ids.indexOf(bug.id) != -1;
-                                             });
-    } else {
-      orderedBugList = intersector;
-    }
+
+  // And take intersections between groups
+
+  // First get all the bugs
+  for (var group in results) {
+    var tmp = orderedBugList.concat(results[group]);
+    orderedBugList = unique_list(tmp, function(bug) { return bug.id; });
   }
+
+  // Then remove those not in a given group
+  for (var group in results) {
+    if (!results[group].length) {
+      continue;
+    }
+
+    var intersect_ids = results[group].map(function(bug) { return bug.id; });
+    orderedBugList = orderedBugList.filter(function(bug) {
+                                             return intersect_ids.indexOf(bug.id) != -1;
+                                           });
+  }
+
   orderedBugList.sort(function(a, b) { return b.id - a.id; }); // sort by ID descending
 
   var content = document.createElement('div');
