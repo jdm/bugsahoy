@@ -36,18 +36,31 @@ function addLanguageMapping(cat, language) {
 }
 
 addSimpleMapping('a11y', 'Core', 'Disability Access APIs');
-addSimpleMapping('gfx', 'Core', ['Graphics', 'GFX: Color Management', 'Canvas: WebGL', 'Canvas', 'Imagelib']);
+addSimpleMapping('gfx', 'Core', ['Graphics', 'GFX: Color Management', 'Canvas: WebGL', 'Canvas: 2D', 'ImageLib']);
 addSimpleMapping('net', 'Core', ['Networking', 'Networking: HTTP', 'Networking: Cookies', 'Networking: File',
-                                 'Networking: JAR', 'Networking: WebSockets']);
+                                 'Networking: JAR', 'Networking: WebSockets', 'Networking: DNS']);
+addSimpleMapping('layout', 'Core', ['Layout', 'Layout: Block and Inline', 'Layout: Floats',
+                                    'Layout: Form Controls', 'Layout: HTML Frames', 'Layout: Images',
+                                    'Layout: Misc Code', 'Layout: R & A Pos', 'Layout: Tables', 'Layout: Text',
+                                    'Layout: View Rendering']);
+addSimpleMapping('dom', 'Core', ['Style System (CSS)', 'SVG', 'DOM', 'DOM: Core & HTML', 'DOM: CSS Object Model',
+                                 'DOM: Device Interfaces', 'DOM: Events', 'DOM: Mozilla Extensions', 'DOM: Other',
+                                 'DOM: Traversal-Range', 'DOM: Validation', 'Geolocation', 'HTML: Form Submission']);
+addSimpleMapping('editor', 'Core', 'Editor');
 addSimpleMapping('mobile', 'Fennec');
 addSimpleMapping('mobile', 'Fennec Native');
 addSimpleMapping('mobile', 'Core', 'Widget: Android');
-addSimpleMapping('jseng', 'Core', ['Javascript Engine', 'js-ctypes']);
+addSimpleMapping('jseng', 'Core', ['Javascript Engine', 'js-ctypes', 'XPConnect']);
 addSimpleMapping('media', 'Core', 'Video/Audio');
 addSimpleMapping('ff', 'Firefox');
 addSimpleMapping('ff', 'Toolkit');
+addSimpleMapping('devtools', 'Firefox', ['Developer Tools', 'Developer Tools: Console',
+                                         'Developer Tools: Debugger', 'Developer Tools: Inspector',
+                                         'Developer Tools: Scratchpad', 'Developer Tools: Style Editor']);
+addSimpleMapping('releng', 'mozilla.org', ['Release Engineering', 'Hg: Customizations']);
+addSimpleMapping('automation', 'Testing');
 
-addLanguageMapping('py', 'python');
+addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
 addSimpleMapping('java', 'Core', 'Widget: Android');
 addLanguageMapping('java', 'java');
