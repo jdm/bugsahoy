@@ -101,6 +101,12 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Style Editor']);
 addComponentMapping('releng', 'mozilla.org', ['Release Engineering', 'Hg: Customizations']);
 addComponentMapping('automation', 'Testing');
+addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
+                                                 'Firefox Sync: Build',
+                                                 'Firefox Sync: Crypto',
+                                                 'Firefox Sync: UI',
+                                                 'Android Sync',
+                                                 'Server: Sync']);
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
