@@ -91,6 +91,7 @@ addComponentMapping('jseng', 'Core',
 addComponentMapping('media', 'Core', 'Video/Audio');
 addComponentMapping('ff', 'Firefox');
 addComponentMapping('ff', 'Toolkit');
+addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
 addComponentMapping('devtools', 'Firefox',
                     ['Developer Tools',
                      'Developer Tools: Console',
@@ -104,9 +105,11 @@ addComponentMapping('automation', 'Testing');
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
 addSimpleMapping('langs', 'java', 'Core', 'Widget: Android');
+addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
 addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
-addLanguageMapping('cpp', 'c++');
+addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
+addLanguageMapping('cpp', 'c');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
 
