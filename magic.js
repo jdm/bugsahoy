@@ -331,5 +331,16 @@ function toggleCategory(e)
       extra.style.display = "none";
     rebuildTableContents();
   }
+  
+  var query = [];
+  var checks = document.getElementsByTagName("input");
+  for (var i = 0; i < checks.length; i++) {
+    if (checks[i].type != "checkbox")
+      continue;
+    if (checks[i].checked) {
+      query.push(checks[i].id + "=1");
+    }
+  }
+  history.replaceState(null, '', window.location.pathname + '?' + query.join('&'));
 }
 

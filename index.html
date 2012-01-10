@@ -95,6 +95,26 @@ Display only: <br><br>
   addExtra('a11y', 'Extra information for Accessibility', 'Get involved with the <a href="https://wiki.mozilla.org/Accessibility/Contribute">Accessibility</a> team');
   addExtra('releng', 'Extra information for Release Engineering', 'Get involved with the <a href="https://wiki.mozilla.org/ReleaseEngineering:Contribute">Release Engineering</a> team');
   addExtra('sync', 'Extra information for Firefox Sync' , 'Get involved with the <a href="https://wiki.mozilla.org/Services/Sync#Get_Involved">Sync</a> team');
+
+  function initial_state() {
+    var query = window.location.search;
+    if (query.length == 0) return;
+
+    function check_state (sVar) {  
+      return unescape(query.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+    }
+    var checks = document.getElementsByTagName("input");
+    for (var i = 0; i < checks.length; i++) {
+      if (checks[i].type != "checkbox")
+        continue;
+      if (check_state(checks[i].id)) {
+        checks[i].checked = true;
+        checks[i].onchange({target: checks[i]});
+      }
+    }
+  }
+
+  window.onload = initial_state;
 </script>
 
 <div id="ba-footer">
