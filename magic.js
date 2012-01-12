@@ -80,7 +80,7 @@ addComponentMapping('dom', 'Core',
                      'DOM: Validation',
                      'Geolocation',
                      'HTML: Form Submission']);
-addComponentMapping('editor', 'Core', 'Editor');
+addComponentMapping('editor', 'Core', ['Editor', 'Selection']);
 addComponentMapping('mobile', 'Fennec');
 addComponentMapping('mobile', 'Fennec Native');
 addComponentMapping('mobile', 'Core', 'Widget: Android');
@@ -107,6 +107,8 @@ addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: UI',
                                                  'Android Sync',
                                                  'Server: Sync']);
+addComponentMapping('thunderbird', 'Thunderbird');
+addComponentMapping('seamonkey', 'Seamonkey');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
