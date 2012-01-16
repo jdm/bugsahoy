@@ -109,6 +109,7 @@ addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Server: Sync']);
 addComponentMapping('thunderbird', 'Thunderbird');
 addComponentMapping('seamonkey', 'Seamonkey');
+addComponentMapping('calendar', 'Calendar');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
