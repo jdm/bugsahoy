@@ -81,6 +81,7 @@ addComponentMapping('dom', 'Core',
                      'Geolocation',
                      'HTML: Form Submission']);
 addComponentMapping('editor', 'Core', ['Editor', 'Selection']);
+addComponentMapping('internals', 'Core', 'General');
 addComponentMapping('mobile', 'Fennec');
 addComponentMapping('mobile', 'Fennec Native');
 addComponentMapping('mobile', 'Core', 'Widget: Android');
