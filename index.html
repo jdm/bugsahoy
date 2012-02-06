@@ -77,6 +77,7 @@ Display only: <br><br>
     var elem = document.createElement('li');
     elem.setAttribute('aria-live', 'assertive');
     elem.setAttribute('id', cat + '-extra');
+    elem.setAttribute('role', 'dialog');
     var h = document.createElement('div');
     h.setAttribute('class', 'ba-extra_header');
     var tn = document.createTextNode(header);
