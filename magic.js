@@ -80,7 +80,7 @@ addComponentMapping('dom', 'Core',
                      'DOM: Validation',
                      'Geolocation',
                      'HTML: Form Submission']);
-addComponentMapping('editor', 'Core', ['Editor', 'Selection']);
+addComponentMapping('editor', 'Core', ['Editor', 'Selection', 'Keyboard: Navigation']);
 addComponentMapping('internals', 'Core', 'General');
 addComponentMapping('mobile', 'Fennec');
 addComponentMapping('mobile', 'Fennec Native');
