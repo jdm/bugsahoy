@@ -4,8 +4,8 @@ var BugzillaClient = function(options) {
   this.username = options.username;
   this.password = options.password;
   this.apiUrl = options.url || 
-    (options.test ? "https://api-dev.bugzilla.mozilla.org/test/0.9/"
-                  : "https://api-dev.bugzilla.mozilla.org/0.9/");
+    (options.test ? "https://api-dev.bugzilla.mozilla.org/test/latest/"
+                  : "https://api-dev.bugzilla.mozilla.org/latest/");
 }
 
 BugzillaClient.prototype = {
