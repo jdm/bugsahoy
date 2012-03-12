@@ -27,7 +27,7 @@ function addSimpleMapping(group, cat, prod, components) {
 
 function timeFromModified(lastChangeTime) {
 	var lastModified = new Date(lastChangeTime);
-	today = new Date();
+	var today = new Date();
 	var one_day = 1000*60*60*24;
 	return(Math.ceil((today.getTime() - lastModified.getTime()) / (one_day)));
 }
@@ -42,11 +42,8 @@ function addLanguageMapping(cat, language) {
 
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
 addComponentMapping('gfx', 'Core',
-                    ['Graphics',
-                     'GFX: Color Management',
-                     'Canvas: WebGL',
-                     'Canvas: 2D',
-                     'ImageLib']);
+                    ['Graphics', 'GFX: Color Management',
+                     'Canvas: WebGL', 'Canvas: 2D', 'ImageLib', 'Graphics']);
 addComponentMapping('net', 'Core',
                     ['Networking',
                      'Networking: HTTP',
@@ -54,7 +51,8 @@ addComponentMapping('net', 'Core',
                      'Networking: File',
                      'Networking: JAR',
                      'Networking: WebSockets',
-                     'Networking: DNS']);
+                     'Networking: DNS',
+                     'WebRTC: Networking']);
 addComponentMapping('layout', 'Core',
                     ['Layout',
                      'Layout: Block and Inline',
@@ -79,20 +77,41 @@ addComponentMapping('dom', 'Core',
                      'DOM: Traversal-Range',
                      'DOM: Validation',
                      'Geolocation',
-                     'HTML: Form Submission']);
-addComponentMapping('editor', 'Core', ['Editor', 'Selection', 'Keyboard: Navigation']);
-addComponentMapping('internals', 'Core', 'General');
+                     'HTML: Form Submission',
+                     'Event Handling', 'HTML: Parser',
+                     'MathML', 'XML', 'XSLT']);
+addComponentMapping('editor', 'Core', ['Editor', 'Selection', 'Keyboard: Navigation',
+                                       'Drag and Drop', 'Spelling Checker']);
+addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigation', 'XPCOM',
+                                          'Embedding: APIs', 'Embedding: GRE Core', 'Embedding: GTK Widget',
+                                          'Embedding: Mac', 'Embedding: Packaging',
+                                          'File Handling', 'Find Backend', 'Gecko Profiler',
+                                          'History (Global)', 'Image Blocking', 'Installer', 'IPC',
+                                          'MFBT', 'Plug-ins', 'Preferences: Backend', 'Print Preview',
+                                          'Printing: Output', 'Printing: Setup', 'Profile: BackEnd',
+                                          'Profile: Migration', 'Profile: Roaming', 'RDF',
+                                          'Rewriting and Analysis', 'Security', 'Security: CAPS', 'Security: PSM',
+                                          'Security: S/MIME', 'Security: UI',
+                                          'Serializers', 'SQL', 'String', 'XBL', 'XTF', 'XUL',
+                                          'Widget', 'Widget: Android', 'Widget: BeOS', 'Widget: Cocoa',
+                                          'Widget: Gtk', 'Widget: OS/2', 'Widget: Photon', 'Widget: Qt',
+                                          'Widget: Win32', 'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus']);
+addComponentMapping('internals', 'NSPR');
+addComponentMapping('internals', 'NSS');
 addComponentMapping('mobile', 'Fennec');
 addComponentMapping('mobile', 'Fennec Native');
-addComponentMapping('mobile', 'Core', 'Widget: Android');
+addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
 addComponentMapping('jseng', 'Core',
                     ['Javascript Engine',
                      'js-ctypes',
-                     'XPConnect']);
-addComponentMapping('media', 'Core', 'Video/Audio');
+                     'XPConnect',
+                     'Nanojit']);
+addComponentMapping('media', 'Core', ['Video/Audio', 'WebRTC', 'WebRTC: Audio/Video',
+                                      'WebRTC: Signalling']);
 addComponentMapping('ff', 'Firefox');
 addComponentMapping('ff', 'Toolkit');
 addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
+addComponentMapping('ff', 'Input', ['Frontend', 'General']);
 addComponentMapping('devtools', 'Firefox',
                     ['Developer Tools',
                      'Developer Tools: Console',
@@ -111,6 +130,8 @@ addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
 addComponentMapping('thunderbird', 'Thunderbird');
 addComponentMapping('seamonkey', 'SeaMonkey');
 addComponentMapping('calendar', 'Calendar');
+addComponentMapping('b2g', 'Boot2Gecko');
+addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
@@ -302,7 +323,8 @@ function retrieveResults(category) {
   for (var i = 0; i < mapping.length; i++) {
     var searchParams = {status_whiteboard: 'mentor=',
                         whiteboard_type: 'contains_all',
-                        bug_status: ["NEW","ASSIGNED","REOPENED"],
+                        bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
+                        //component_type: 'contains_any', use when bug 734134 is fixed
                         product: ''};
     for (var param in mapping[i]) {
       if (!(param in searchParams))

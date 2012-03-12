@@ -40,12 +40,12 @@ Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
 
     addCategories([["a11y", "Accessibility"], ["gfx", "Graphics"], ["net", "Networking"],
                    ["jseng", "Javascript Engine"], ["layout", "Layout"], ["dom", "DOM and CSS technology"],
-                   ["editor", "Input handling"], ["internals", "Firefox Internals"],
+                   ["editor", "Input handling"], ["internals", "Firefox internals"],
                    ["media", "Media"], ["mobile", "Mobile (Android)"], ["ff", "Firefox UI"],
                    ["devtools", "Firefox Developer Tools"], ["releng", "Release Engineering"],
                    ["automation", "Test Automation"], ["sync", "Firefox Sync"], ["thunderbird", "Thunderbird"],
-                   ["seamonkey", "SeaMonkey"], ["calendar", "Calendar"]]);
-  </script>    
+                   ["seamonkey", "SeaMonkey"], ["calendar", "Calendar"], ["b2g", "Boot2Gecko"]]);
+  </script>
 <br><br>
 Do you know: <br><br>
 <script>
@@ -90,7 +90,8 @@ Display only: <br><br>
     extra.appendChild(elem);
   }
 
-  addExtra('mobile', 'Extra information for Mobile', '<a href="https://wiki.mozilla.org/Mobile/Get_Involved">Get involved with the Mobile team</a>');
+  addExtra('mobile', 'Extra information for Mobile', 'Get involved with the <a href="https://wiki.mozilla.org/Mobile/Get_Involved">Mobile team</a>');
+  addExtra('java', 'Extra information for Java', 'Get involved with the <a href="https://wiki.mozilla.org/Mobile/Get_Involved">Mobile team</a>');
   addExtra('py', 'Do you like Python?', 'Get involved with the <a href="https://wiki.mozilla.org/Auto-tools/New_Contributor/Skills_and_Areas">Auto-Tools</a> team<br>Get involved with the <a href="https://wiki.mozilla.org/ReleaseEngineering:Contribute">Release Engineering</a> team');
   addExtra('gfx', 'Extra information for Graphics', 'Get involved with the <a href="https://wiki.mozilla.org/Platform/GFX/Contribute">Graphics</a> team');
   addExtra('jseng', 'Extra information for the JS engine', 'Get involved with the <a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey">JS engine</a> team');
@@ -98,6 +99,9 @@ Display only: <br><br>
   addExtra('releng', 'Extra information for Release Engineering', 'Get involved with the <a href="https://wiki.mozilla.org/ReleaseEngineering:Contribute">Release Engineering</a> team');
   addExtra('sync', 'Extra information for Firefox Sync' , 'Get involved with the <a href="https://wiki.mozilla.org/Services/Sync#Get_Involved">Sync</a> team');
   addExtra('seamonkey', 'Extra information for SeaMonkey', 'Get involved with the <a href="http://www.seamonkey-project.org">SeaMonkey Project</a>');
+  addExtra('js', 'Extra information for JS', 'Get involved with the <a href="http://github.com/mozilla/pdf.js">pdf2js project</a><br>Get involved with the <a href="https://github.com/kripken/emscripten/">emscripten project</a>');
+  addExtra('b2g', 'Extra information for Boot2Gecko', 'Get involved with the <a href="https://wiki.mozilla.org/B2G/Hacking">Boot2Gecko project</a>');
+  addExtra('devtools', 'Extra information for Developer Tools', 'Get involved with the <a href="https://wiki.mozilla.org/DevTools/GetInvolved">devtools team</a>');
 
   function initial_state() {
     var query = window.location.search;
