@@ -43,7 +43,8 @@ function addLanguageMapping(cat, language) {
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
 addComponentMapping('gfx', 'Core',
                     ['Graphics', 'GFX: Color Management',
-                     'Canvas: WebGL', 'Canvas: 2D', 'ImageLib', 'Graphics']);
+                     'Canvas: WebGL', 'Canvas: 2D', 'ImageLib', 'Graphics',
+                     'Graphics: Layers', 'Graphics: Text']);
 addComponentMapping('net', 'Core',
                     ['Networking',
                      'Networking: HTTP',
@@ -72,10 +73,12 @@ addComponentMapping('dom', 'Core',
                      'DOM: CSS Object Model',
                      'DOM: Device Interfaces',
                      'DOM: Events',
+                     'DOM: IndexedDB',
                      'DOM: Mozilla Extensions',
                      'DOM: Other',
                      'DOM: Traversal-Range',
                      'DOM: Validation',
+                     'DOM: Workers',
                      'Geolocation',
                      'HTML: Form Submission',
                      'Event Handling', 'HTML: Parser',
@@ -95,7 +98,8 @@ addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigat
                                           'Serializers', 'SQL', 'String', 'XBL', 'XTF', 'XUL',
                                           'Widget', 'Widget: Android', 'Widget: BeOS', 'Widget: Cocoa',
                                           'Widget: Gtk', 'Widget: OS/2', 'Widget: Photon', 'Widget: Qt',
-                                          'Widget: Win32', 'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus']);
+                                          'Widget: Win32', 'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus',
+                                          'Identity']);
 addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
 addComponentMapping('mobile', 'Fennec');
@@ -324,7 +328,7 @@ function retrieveResults(category) {
     var searchParams = {status_whiteboard: 'mentor=',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
-                        //component_type: 'contains_any', use when bug 734134 is fixed
+                        /*component_type: 'equals',*/
                         product: ''};
     for (var param in mapping[i]) {
       if (!(param in searchParams))
