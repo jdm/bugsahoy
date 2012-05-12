@@ -132,6 +132,7 @@ addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Android Sync',
                                                  'Server: Sync']);
 addComponentMapping('thunderbird', 'Thunderbird');
+addComponentMapping('thunderbird', 'MailNews Core');
 addComponentMapping('seamonkey', 'SeaMonkey');
 addComponentMapping('calendar', 'Calendar');
 addComponentMapping('b2g', 'Boot2Gecko');
