@@ -206,7 +206,13 @@ function rebuildTableContents() {
   // Then remove those not in a given group
   for (var group in results) {
     if (!results[group].length) {
-      continue;
+      // gross. don't intersect if no components are selected, but do if there are no results from
+      // the selected components (ie. searching Python vs. Python+RelEng).
+      if ('components' != group ||
+          interestingComponents.filter(
+            function(cat) { return groups['components'].indexOf(cat) != -1; }
+          ).length == 0)
+        continue;
     }
 
     var intersect_ids = results[group].map(function(bug) { return bug.id; });
