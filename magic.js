@@ -232,6 +232,7 @@ function rebuildTableContents() {
     var link = document.createElement('a');
     elem.setAttribute('tabindex', '0');
     link.setAttribute('href', "http://bugzil.la/" + bug.id);
+    link.setAttribute('target', "_blank");
     var text = document.createTextNode(bug.id);
     var text2 = document.createTextNode(" - " + bug.summary);
     elem.appendChild(inner);
