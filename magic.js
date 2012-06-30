@@ -41,6 +41,8 @@ function addLanguageMapping(cat, language) {
 }
 
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
+addComponentMapping('build', 'Core', ['Build Config']);
+addComponentMapping('build', 'MailNews Core', ['Build Config']);
 addComponentMapping('gfx', 'Core',
                     ['Graphics', 'GFX: Color Management',
                      'Canvas: WebGL', 'Canvas: 2D', 'ImageLib', 'Graphics',
@@ -140,6 +142,8 @@ addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstract
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
+addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
+addSimpleMapping('langs', 'sh', 'MailNews Core', 'Build Config');
 addSimpleMapping('langs', 'java', 'Core', 'Widget: Android');
 addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
 addLanguageMapping('java', 'java');
