@@ -168,6 +168,7 @@ addComponentMapping('seamonkey', 'SeaMonkey');
 addComponentMapping('calendar', 'Calendar');
 addComponentMapping('b2g', 'Boot2Gecko');
 addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
+addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
