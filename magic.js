@@ -393,8 +393,12 @@ function retrieveResults(category) {
        var name = curMap.repo.split('/')[1];
        var xhr = new XMLHttpRequest();
        xhr.onreadystatechange = function() {
-         if (xhr.readyState != 4 || xhr.status != 200)
+         if (xhr.readyState != 4)
            return;
+         if (xhr.status != 200) {
+           expectedResults--;
+           return;
+         }
          var data = JSON.parse(xhr.response);
          for (var d in data) {
            data[d].id = data[d].number;
@@ -404,7 +408,7 @@ function retrieveResults(category) {
          }
          processResult(null, data);
        };
-       xhr.open('GET', 'https://api.github.com/repos/'+user+'/'+name+'/issues?labels='+curMap.tag, true);
+       xhr.open('GET', 'cgi-bin/github.cgi?repo='+user+encodeURIComponent('/')+name+'&label='+curMap.tag, true);
        xhr.send(null);       
      })(i);
   }
