@@ -40,6 +40,32 @@ function addLanguageMapping(cat, language) {
   addSearchMapping('langs', cat, {status_whiteboard: 'lang=' + language});
 }
 
+var githubMapping = {};
+function addGithubMapping(group, cat, repos, tags) {
+  if (!(cat in githubMapping))
+    githubMapping[cat] = [];
+  if (typeof repos == "string")
+    repos = [repos];
+  if (typeof tags == "string")
+    tags = [tags];
+
+  for (var i = 0; i < repos.length; i++)
+    for (var j = 0; j < tags.length; j++)
+    githubMapping[cat].push({
+      repo: repos[i],
+      tag: tags[j]
+    });
+  
+  if (!groups[group])
+    groups[group] = [];
+  
+  groups[group].push(cat);
+}
+
+function addGithubComponentMapping(cat, repos, tags) {
+  addGithubMapping('components', cat, repos, tags);
+}
+
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
 addComponentMapping('build', 'Core', ['Build Config']);
 addComponentMapping('build', 'MailNews Core', ['Build Config']);
@@ -127,6 +153,9 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Style Editor']);
 addComponentMapping('releng', 'mozilla.org', ['Release Engineering', 'Hg: Customizations']);
 addComponentMapping('automation', 'Testing');
+addGithubComponentMapping('automation', ['mozilla/memchaser',
+                                         'mozilla/moz-grid-config',
+                                         'mozilla/bidpom'], 'mentored');
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
@@ -235,7 +264,8 @@ function rebuildTableContents() {
     var inner = document.createElement('span');
     var link = document.createElement('a');
     elem.setAttribute('tabindex', '0');
-    link.setAttribute('href', "http://bugzil.la/" + bug.id);
+    var url = bug.html_url || "http://bugzil.la/" + bug.id;
+    link.setAttribute('href', url);
     link.setAttribute('target', "_blank");
     var text = document.createTextNode(bug.id);
     var text2 = document.createTextNode(" - " + bug.summary);
@@ -313,7 +343,8 @@ function retrieveResults(category) {
   document.getElementById('throbber').style.visibility = "visible";
 
   var mapping = categoryMapping[category];
-  var expectedResults = mapping.length;
+  var ghMapping = githubMapping[category] || [];
+  var expectedResults = mapping.length + ghMapping.length;
 
   function processResult(msg, results) {
     if (!(category in unfinishedResults))
@@ -353,6 +384,29 @@ function retrieveResults(category) {
       }
     }
     bugzilla.searchBugs(searchParams, processResult);
+  }
+  
+  for (var i = 0; i < ghMapping.length; i++) {
+    (function(i) {
+       var curMap = ghMapping[i];
+       var user = curMap.repo.split('/')[0];
+       var name = curMap.repo.split('/')[1];
+       var xhr = new XMLHttpRequest();
+       xhr.onreadystatechange = function() {
+         if (xhr.readyState != 4 || xhr.status != 200)
+           return;
+         var data = JSON.parse(xhr.response);
+         for (var d in data) {
+           data[d].id = data[d].number;
+           data[d].assigned_to = data.assignee || {real_name: "nobody"};
+           data[d].summary = user + '/' + name + ' - ' + data[d].title;
+           data[d].last_change_time = data[d].updated_at;
+         }
+         processResult(null, data);
+       };
+       xhr.open('GET', 'https://api.github.com/repos/'+user+'/'+name+'/issues?labels='+curMap.tag, true);
+       xhr.send(null);       
+     })(i);
   }
 }
 
