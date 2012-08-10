@@ -392,7 +392,7 @@ function retrieveResults(category) {
        var curMap = ghMapping[i];
        var user = curMap.repo.split('/')[0];
        var name = curMap.repo.split('/')[1];
-      $.getJSON('https://api.github.com/repos/' + user + '/' + name + '/issues?label=' + curMap.tag,
+      $.getJSON('https://api.github.com/repos/' + user + '/' + name + '/issues?labels=' + curMap.tag,
                 null, function(data) {
          for (var d in data) {
            data[d].id = data[d].number;
