@@ -392,15 +392,8 @@ function retrieveResults(category) {
        var curMap = ghMapping[i];
        var user = curMap.repo.split('/')[0];
        var name = curMap.repo.split('/')[1];
-       var xhr = new XMLHttpRequest();
-       xhr.onreadystatechange = function() {
-         if (xhr.readyState != 4)
-           return;
-         if (xhr.status != 200) {
-           expectedResults--;
-           return;
-         }
-         var data = JSON.parse(xhr.response);
+      $.getJSON('https://api.github.com/repos/' + user + '/' + name + '/issues?label=' + curMap.tag,
+                null, function(data) {
          for (var d in data) {
            data[d].id = data[d].number;
            data[d].assigned_to = data.assignee || {real_name: "nobody"};
@@ -408,9 +401,7 @@ function retrieveResults(category) {
            data[d].last_change_time = data[d].updated_at;
          }
          processResult(null, data);
-       };
-       xhr.open('GET', 'cgi-bin/github.cgi?repo='+user+encodeURIComponent('/')+name+'&label='+curMap.tag, true);
-       xhr.send(null);       
+      });
      })(i);
   }
 }
