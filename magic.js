@@ -127,7 +127,7 @@ addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigat
                                           'Widget', 'Widget: Android', 'Widget: BeOS', 'Widget: Cocoa',
                                           'Widget: Gtk', 'Widget: OS/2', 'Widget: Photon', 'Widget: Qt',
                                           'Widget: Win32', 'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus',
-                                          'Identity']);
+                                          'Identity', 'Localization']);
 addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
 addComponentMapping('mobile', 'Fennec');
