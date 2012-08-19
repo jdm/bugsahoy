@@ -151,7 +151,10 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Inspector',
                      'Developer Tools: Scratchpad',
                      'Developer Tools: Style Editor']);
-addComponentMapping('releng', 'mozilla.org', ['Release Engineering', 'Hg: Customizations']);
+addComponentMapping('releng', 'mozilla.org', ['Release Engineering',
+                                              'Release Engineering: Automation (General)',
+                                              'Release Engineering: Developer Tools',
+                                              'Hg: Customizations']);
 addComponentMapping('automation', 'Testing');
 addGithubComponentMapping('automation', ['mozilla/memchaser',
                                          'mozilla/moz-grid-config',
