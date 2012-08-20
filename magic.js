@@ -131,7 +131,7 @@ addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigat
 addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
 addComponentMapping('mobile', 'Fennec');
-addComponentMapping('mobile', 'Fennec Native');
+addComponentMapping('mobile', 'Firefox for Android');
 addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
 addComponentMapping('jseng', 'Core',
                     ['Javascript Engine',
