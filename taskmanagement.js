@@ -14,7 +14,7 @@ if (!check_query('access_token')) {
   path = path.substr(0, path.lastIndexOf('/') + 1);
   path += 'cgi-bin/oauth_redirect.cgi?url=' + encodeURIComponent(window.location.protocol + '//' + window.location.host + window.location.pathname);
   redirect = window.location.protocol + '//' + window.location.host + path;
-  clientID = location.hostname == "localhost" ? "73fd92744901e18828bb" : "7b9eaa72a4f18972fea5";
+  clientID = location.hostname == "localhost" ? "73fd92744901e18828bb" : "014a8157d5f002c9a3f7";
   window.location = "https://github.com/login/oauth/authorize?scope=public_repo&client_id=" + clientID + "&redirect_uri=" + redirect;
 }
 
@@ -23,20 +23,11 @@ window.onload = function() {
 };
 
 function _request(method, url, data, success, error) {
-  data['access_token'] = githubToken;
-  $.ajax({type: method,
-          url: url,
-          data: data,
-          beforeSend: function(xhr) {
-            xhr.setRequestHeader("Authorization", "token " + githubToken);
-            xhr.setRequestHeader("Accept", 'application/vnd.github.raw');
-          },
-          success: function(response) { callback(JSON.parse(response)); },
-          error: error(),
-          /*contentType: 'application/json',*/
-          contentType: 'application/x-www-form-urlencoded',
-          dataType: 'json'
-  });
+  $.getJSON('cgi-bin/githubapi.cgi?url=' + encodeURIComponent(url) +
+            '&access_token=' + githubToken +
+            '&data=' + JSON.stringify(data) +
+            '&method=' + method,
+            success, error);
 }
 
 /* success is a function that is passed the API response data specified at
@@ -48,7 +39,7 @@ function submitTask(summary, body, success, error) {
     body: body,
     labels: [config['tag']]
   };
-  _request('POST', 'https://api.github.com/repos/' + config['owner'] + '/' + config['repo'] + '/issues',
+  _request('POST', 'repos/' + config['owner'] + '/' + config['repo'] + '/issues',
            data, success, error || function() { console.log('Error creating task'); });
 }
 
@@ -61,6 +52,6 @@ function editTask(id, summary, body, success, error) {
     body: body,
     labels: [config['tag']]
   };
-  _request('PATCH', 'https://api.github.com/repos/' + config['owner'] + '/' + config['repo'] + '/issues/' + id,
+  _request('PATCH', 'repos/' + config['owner'] + '/' + config['repo'] + '/issues/' + id,
            data, success, error || function() { console.log('Error editing task'); });
 }
