@@ -170,7 +170,7 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                                          'mozilla/nightlytt',
                                          'whimboo/mozmill-automation',
                                          'whimboo/mozmill-crowd',
-                                         'whimboo/mozmill-dashboard',
+                                         'mozilla/mozmill-dashboard',
                                          'whimboo/mozmill-environment'], 'mentored');
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
