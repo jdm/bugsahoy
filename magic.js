@@ -419,7 +419,7 @@ function retrieveResults(category) {
            data[d].last_change_time = data[d].updated_at;
          }
          processResult(null, data);
-      });
+      }).error(function() { processResult(null, []); });
      })(i);
   }
 }
