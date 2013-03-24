@@ -192,6 +192,22 @@ addComponentMapping('b2g', 'Boot2Gecko');
 addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
 addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
 addComponentMapping('metro', 'Firefox for Metro');
+addComponentMapping('webqa', 'Web QA');
+addGithubComponentMapping('webqa', ['mozilla/FlightDeck-selenium',
+                                    'mozilla/Affiliates-Tests',
+                                    'mozilla/moztrap-tests',
+                                    'mozilla/Addon-Tests',
+                                    'mozilla/mdn-tests',
+                                    'mozilla/mcom-tests',
+                                    'mozilla/snippets-tests',
+                                    'mozilla/sumo-tests',
+                                    'mozilla/Socorro-Tests',
+                                    'mozilla/marketing-project-template',
+                                    'mozilla/mozwebqa-test-templates',
+                                    'mozilla/qmo-tests',
+                                    'mozilla/wiki-tests',
+                                    'mozilla/bouncer-tests',
+                                    'mozilla/marketplace-tests'], '');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
