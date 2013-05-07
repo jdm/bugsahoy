@@ -192,6 +192,33 @@ addComponentMapping('b2g', 'Boot2Gecko');
 addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
 addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
 addComponentMapping('metro', 'Firefox for Metro');
+addComponentMapping('webmaker', 'Webmaker', ['Badges',
+                                             'DevOps',
+                                             'donate.mozilla.org',
+                                             'Events',
+                                             'General',
+                                             'Login',
+                                             'MakeAPI',
+                                             'Popcorn Maker',
+                                             'Projects',
+                                             'Thimble',
+                                             'webmaker.org']);
+addGithubComponentMapping('webmaker', ['mozilla/friendlycode',
+                                       'mozilla/thimble.webmaker.org',
+                                       'mozilla/webpagemaker',
+                                       'mozilla/butter',
+                                       'mozilla/popcorn-js',
+                                       'mozilla/popcorn_maker',
+                                       'mozilla/popcorn-docs',
+                                       'mozilla/popcornjs.org',
+                                       'mozilla/openbadger',
+                                       'mozilla/openbadges',
+                                       'mozilla/openbadges-bakery',
+                                       'mozilla/openbadges-validator',
+                                       'mozilla/openbadges-validator-service',
+                                       'mozilla/openbadges-verifier',
+                                       'mozilla/MakeAPI',
+                                       'mozilla/hackablegames'],'mentored');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
