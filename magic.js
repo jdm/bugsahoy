@@ -258,6 +258,7 @@ var interestingComponents = [];
 
 var resultsCache = {};
 var unfinishedResults = {};
+var pendingRequests = 0;
 
 function rebuildTableContents() {
   var t = document.getElementById('bugs');
@@ -369,7 +370,10 @@ function rebuildTableContents() {
   
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
-  document.getElementById('throbber').style.visibility = "hidden";
+  pendingRequests--;
+  if (pendingRequests === 0) {
+    document.getElementById('throbber').style.visibility = "hidden";
+  }
   
   jQuery('.moreInfo').each(function(count){
           var qt = jQuery(this).qtip({
@@ -408,6 +412,7 @@ function retrieveResults(category) {
     return;
   }  
 
+  pendingRequests++;
   document.getElementById('throbber').style.visibility = "visible";
 
   var mapping = categoryMapping[category];
