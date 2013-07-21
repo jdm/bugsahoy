@@ -13,12 +13,12 @@
 </head>
 <body>
 <!--OHDEAR-->
-<div id="ba-total-header">
+<div id="ba-total-header" role="banner">
 Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
 </div>
 <div id="ba-content">
   Are you interested in:<br><br>
-<div id="ba-choices">
+<div id="ba-choices" role="navigation">
   <script>
     function addCategories(cats) {
       var choices = document.getElementById('ba-choices');
@@ -59,7 +59,7 @@ Display only: <br><br>
 </script>
 </div>
 
-<div id="bugs">
+<div id="bugs" role="main">
   <div id="ba-header" role="log">Results <span id="total"></span> <img id="throbber" alt="Fetching results" src="loading.gif" style="visibility: hidden; float: right"></div>
   <div id="bugs_content">
     <div class="bug"><span>No categories specified.</span></div>
@@ -68,16 +68,14 @@ Display only: <br><br>
 
 </div>
 
-<ul id="ba-extra">
+<ul id="ba-extra" role="complementary">
 </ul>
 
 <script>
   function addExtra(cat, header, content) {
     var extra = document.getElementById('ba-extra');
     var elem = document.createElement('li');
-    elem.setAttribute('aria-live', 'assertive');
     elem.setAttribute('id', cat + '-extra');
-    elem.setAttribute('role', 'dialog');
     var h = document.createElement('div');
     h.setAttribute('class', 'ba-extra_header');
     var tn = document.createTextNode(header);
@@ -125,7 +123,7 @@ Display only: <br><br>
   window.onload = initial_state;
 </script>
 
-<div id="ba-footer">
+<div id="ba-footer" role="contentinfo">
     <i><a href="https://wiki.mozilla.org/BugsAhoy">Bugs Ahoy!</a></i> <span>is written by <a href="https://mozillians.org/en-US/u/cba2fc3233">Josh Matthews</a>
 (get the <a href="http://github.com/jdm/bugsahoy/">source</a>!)</span>
 </div>
