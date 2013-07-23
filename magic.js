@@ -145,18 +145,7 @@ addComponentMapping('ff', 'Toolkit');
 addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
 addComponentMapping('ff', 'Input', ['Frontend', 'General']);
 addComponentMapping('devtools', 'Firefox',
-                    ['Developer Tools',
-                     'Developer Tools: Console',
-                     'Developer Tools: Debugger',
-                     'Developer Tools: Inspector',
-                     'Developer Tools: Scratchpad',
-                     'Developer Tools: Style Editor',
-                     'Developer Tools: 3D View',
-                     'Developer Tools: Framework',
-                     'Developer Tools: Graphic Commandline and Toolbar',
-                     'Developer Tools: Profiler',
-                     'Developer Tools: Responsive Mode',
-                     'Developer Tools: Source Editor']);
+                    ['Developer Tools']);
 addComponentMapping('releng', 'mozilla.org', ['Release Engineering',
                                               'Release Engineering: Automation (General)',
                                               'Release Engineering: Developer Tools',
