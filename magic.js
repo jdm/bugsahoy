@@ -67,6 +67,8 @@ function addGithubComponentMapping(cat, repos, tags) {
 }
 
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
+addComponentMapping('a11y', 'Firefox', 'Disability Access');
+addSearchMapping('components', 'a11y', {keywords: ['access']});
 addComponentMapping('build', 'Core', ['Build Config']);
 addComponentMapping('build', 'MailNews Core', ['Build Config']);
 addComponentMapping('gfx', 'Core',
