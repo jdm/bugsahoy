@@ -242,6 +242,11 @@ addGithubComponentMapping('webmaker', ['mozilla/butter',
                                        'mozilla/webmakers-tumblr',
                                        'mozilla/webmaker-firehose'],'mentored');
 
+addComponentMapping('appsengineering', 'Developer Ecosystem', ['App Center', 'Apps', 'Dev Kit', 'Web Components']);
+addSimpleMapping('langs', 'js', 'Developer Ecosystem');
+addSimpleMapping('langs', 'html', 'Developer Ecosystem');
+
+
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
 addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
