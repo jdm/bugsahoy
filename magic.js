@@ -162,10 +162,8 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Scratchpad',
                      'Developer Tools: Source Editor',
                      'Developer Tools: Style Editor']);
-addComponentMapping('releng', 'mozilla.org', ['Release Engineering',
-                                              'Release Engineering: Automation (General)',
-                                              'Release Engineering: Developer Tools',
-                                              'Hg: Customizations']);
+addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
+addComponentMapping('releng', 'Release Engineering');
 addComponentMapping('automation', 'Testing');
 addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
                                          'automatedtester/powerball-platform',
