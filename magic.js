@@ -164,6 +164,7 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Style Editor']);
 addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
 addComponentMapping('releng', 'Release Engineering');
+addComponentMapping('automation', 'Boot2Gecko', 'Gaia::UI Tests');
 addComponentMapping('automation', 'Testing');
 addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
                                          'automatedtester/powerball-platform',
