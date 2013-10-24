@@ -164,7 +164,7 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Style Editor']);
 addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
 addComponentMapping('releng', 'Release Engineering');
-addComponentMapping('automation', 'Boot2Gecko', 'Gaia::UI Tests');
+addComponentMapping('automation', 'Firefox OS', 'Gaia::UI Tests');
 addComponentMapping('automation', 'Testing');
 addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
                                          'automatedtester/powerball-platform',
@@ -192,7 +192,7 @@ addComponentMapping('thunderbird', 'Thunderbird');
 addComponentMapping('thunderbird', 'MailNews Core');
 addComponentMapping('seamonkey', 'SeaMonkey');
 addComponentMapping('calendar', 'Calendar');
-addComponentMapping('b2g', 'Boot2Gecko');
+addComponentMapping('b2g', 'Firefox OS');
 addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
 addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
 addComponentMapping('metro', 'Firefox for Metro');
