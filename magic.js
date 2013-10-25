@@ -262,6 +262,7 @@ addLanguageMapping('html', 'css');
 addSearchMapping('ownership', 'unowned',
                  {assigned_to: ['nobody@mozilla.org', 'general@js.bugs']}
                 );
+addSearchMapping('simple', 'simple', {status_whiteboard: 'good first bug'});
 
 var interestingComponents = [];
 
