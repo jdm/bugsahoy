@@ -4,6 +4,8 @@ components based on less granular areas of interest, smaller, more focused lists
 of relevant bugs can be shown, making the experience more pleasant for everybody
 involved.
 
+This fork is specific to [Tech Evangelism efforts](https://wiki.mozilla.org/Compatibility/Mobile/).
+
 Authors:
 Josh Matthews <josh@joshmatthews.net>
 Casey Becking <caseybecking on github>
