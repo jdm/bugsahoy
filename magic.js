@@ -55,10 +55,10 @@ function addGithubMapping(group, cat, repos, tags) {
       repo: repos[i],
       tag: tags[j]
     });
-  
+
   if (!groups[group])
     groups[group] = [];
-  
+
   groups[group].push(cat);
 }
 
@@ -66,203 +66,53 @@ function addGithubComponentMapping(cat, repos, tags) {
   addGithubMapping('components', cat, repos, tags);
 }
 
-addComponentMapping('a11y', 'Core', 'Disability Access APIs');
-addComponentMapping('a11y', 'Firefox', 'Disability Access');
-addSearchMapping('components', 'a11y', {keywords: ['access']});
-addComponentMapping('build', 'Core', ['Build Config']);
-addComponentMapping('build', 'MailNews Core', ['Build Config']);
-addComponentMapping('gfx', 'Core',
-                    ['Graphics', 'GFX: Color Management',
-                     'Canvas: WebGL', 'Canvas: 2D', 'ImageLib', 'Graphics',
-                     'Graphics: Layers', 'Graphics: Text']);
-addComponentMapping('net', 'Core',
-                    ['Networking',
-                     'Networking: HTTP',
-                     'Networking: Cookies',
-                     'Networking: File',
-                     'Networking: JAR',
-                     'Networking: WebSockets',
-                     'Networking: DNS',
-                     'WebRTC: Networking']);
-addComponentMapping('layout', 'Core',
-                    ['Layout',
-                     'Layout: Block and Inline',
-                     'Layout: Floats',
-                     'Layout: Form Controls',
-                     'Layout: HTML Frames',
-                     'Layout: Images',
-                     'Layout: Misc Code',
-                     'Layout: R & A Pos',
-                     'Layout: Tables',
-                     'Layout: Text',
-                     'Layout: View Rendering']);
-addComponentMapping('dom', 'Core',
-                    ['Style System (CSS)',
-                     'SVG', 'DOM',
-                     'DOM: Core & HTML',
-                     'DOM: CSS Object Model',
-                     'DOM: Device Interfaces',
-                     'DOM: Events',
-                     'DOM: IndexedDB',
-                     'DOM: Mozilla Extensions',
-                     'DOM: Other',
-                     'DOM: Traversal-Range',
-                     'DOM: Validation',
-                     'DOM: Workers',
-                     'Geolocation',
-                     'HTML: Form Submission',
-                     'Event Handling', 'HTML: Parser',
-                     'MathML', 'XML', 'XSLT']);
-addComponentMapping('editor', 'Core', ['Editor', 'Selection', 'Keyboard: Navigation',
-                                       'Drag and Drop', 'Spelling Checker']);
-addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigation', 'XPCOM',
-                                          'Embedding: APIs', 'Embedding: GRE Core', 'Embedding: GTK Widget',
-                                          'Embedding: Mac', 'Embedding: Packaging',
-                                          'File Handling', 'Find Backend', 'Gecko Profiler',
-                                          'History (Global)', 'Image Blocking', 'Installer', 'IPC',
-                                          'MFBT', 'Plug-ins', 'Preferences: Backend', 'Print Preview',
-                                          'Printing: Output', 'Printing: Setup', 'Profile: BackEnd',
-                                          'Profile: Migration', 'Profile: Roaming', 'RDF',
-                                          'Rewriting and Analysis', 'Security', 'Security: CAPS', 'Security: PSM',
-                                          'Security: S/MIME', 'Security: UI',
-                                          'Serializers', 'SQL', 'String', 'XBL', 'XTF', 'XUL',
-                                          'Widget', 'Widget: Android', 'Widget: BeOS', 'Widget: Cocoa',
-                                          'Widget: Gtk', 'Widget: OS/2', 'Widget: Photon', 'Widget: Qt',
-                                          'Widget: Win32', 'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus',
-                                          'Identity', 'Localization']);
-addComponentMapping('internals', 'NSPR');
-addComponentMapping('internals', 'NSS');
-addComponentMapping('mobile', 'Fennec');
-addComponentMapping('mobile', 'Firefox for Android');
-addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
-addComponentMapping('jseng', 'Core',
-                    ['Javascript Engine',
-                     'js-ctypes',
-                     'XPConnect',
-                     'Nanojit']);
-addComponentMapping('media', 'Core', ['Video/Audio', 'WebRTC', 'WebRTC: Audio/Video',
-                                      'WebRTC: Signalling']);
-addComponentMapping('ff', 'Firefox');
-addComponentMapping('ff', 'Toolkit');
-addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
-addComponentMapping('ff', 'Input', ['Frontend', 'General']);
-addComponentMapping('devtools', 'Firefox',
-                    ['Developer Tools',
-                     'Developer Tools: 3D View',
-                     'Developer Tools: App Manager',
-                     'Developer Tools: Console',
-                     'Developer Tools: Debugger',
-                     'Developer Tools: Framework',
-                     'Developer Tools: Graphic Commandline and Toolbar',
-                     'Developer Tools: Inspector',
-                     'Developer Tools: Netmonitor',
-                     'Developer Tools: Object Inspector',
-                     'Developer Tools: Profiler',
-                     'Developer Tools: Responsive Mode',
-                     'Developer Tools: Scratchpad',
-                     'Developer Tools: Source Editor',
-                     'Developer Tools: Style Editor']);
-addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
-addComponentMapping('releng', 'Release Engineering');
-addComponentMapping('automation', 'Firefox OS', 'Gaia::UI Tests');
-addComponentMapping('automation', 'Testing');
-addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
-                                         'automatedtester/powerball-platform',
-                                         'automatedtester/testdaybot',
-                                         'automatedtester/unittest-zero',
-                                         'davehunt/flynnid',
-                                         'davehunt/pytest-mozwebqa',
-                                         'mozilla/bidpom',
-                                         'mozilla/memchaser',
-                                         'mozilla/moz-grid-config',
-                                         'mozilla/mozdownload',
-                                         'mozilla/mozmill-ci',
-                                         'mozilla/nightlytt',
-                                         'whimboo/mozmill-automation',
-                                         'whimboo/mozmill-crowd',
-                                         'mozilla/mozmill-dashboard',
-                                         'whimboo/mozmill-environment'], 'mentored');
-addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
-                                                 'Firefox Sync: Build',
-                                                 'Firefox Sync: Crypto',
-                                                 'Firefox Sync: UI',
-                                                 'Android Sync',
-                                                 'Server: Sync']);
-addComponentMapping('thunderbird', 'Thunderbird');
-addComponentMapping('thunderbird', 'MailNews Core');
-addComponentMapping('seamonkey', 'SeaMonkey');
-addComponentMapping('calendar', 'Calendar');
-addComponentMapping('b2g', 'Firefox OS');
-addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
-addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
-addComponentMapping('metro', 'Firefox for Metro');
-addComponentMapping('webmaker', 'Webmaker', ['Badges',
-                                             'Community',
-                                             'DevOps',
-                                             'Events',
-                                             'General',
-                                             'Login',
-                                             'MakeAPI',
-                                             'Marketing',
-                                             'Popcorn Maker',
-                                             'Projects',
-                                             'Thimble',
-                                             'popcorn.js',
-                                             'webmaker.org']);
-addGithubComponentMapping('webmaker', ['mozilla/butter',
-                                       'mozilla/friendlycode',
-                                       'mozilla/hackablegames',
-                                       'mozilla/MakeAPI',
-                                       'mozilla/openbadger',
-                                       'mozilla/openbadges',
-                                       'mozilla/openbadges-bakery',
-                                       'mozilla/openbadges-validator',
-                                       'mozilla/openbadges-validator-service',
-                                       'mozilla/openbadges-verifier',
-                                       'mozilla/popcorn-js',
-                                       'benrito/popcorn-interim',
-                                       'mozilla/popcorn-templates',
-                                       'mozilla/popcorn_maker',
-                                       'mozilla/popcorn-docs',
-                                       'mozilla/popcornjs.org',
-                                       'mozilla/webpagemaker',
-                                       'mozilla/badges.mozilla.org',
-                                       'mozilla/community.openbadges.org',
-                                       'mozilla/content-2012.mozillafestival.org',
-                                       'mozilla/events.webmaker.org',
-                                       'mozilla/festival.mozilla.org',
-                                       'mozilla/login.webmaker.org',
-                                       'mozilla/make.mozilla.org',
-                                       'mozilla/mofo-lighthouse-migration-test',
-                                       'mozilla/openbadges.org',
-                                       'mozilla/thimble.webmaker.org',
-                                       'mozilla/webmaker.org',
-                                       'mozilla/webmaker-nav',
-                                       'mozilla/webmakers-tumblr',
-                                       'mozilla/webmaker-firehose'],'mentored');
+function addCompatLanguageMapping(lang, countryCode) {
+  addSearchMapping(lang, lang, {status_whiteboard_type: ["allwordssubstr"],
+                                query_format: ["advanced"],
+                                status_whiteboard: ["mentor " + countryCode]});
 
-addComponentMapping('appsengineering', 'Developer Ecosystem', ['App Center', 'Apps', 'Dev Kit', 'Web Components']);
-addSimpleMapping('langs', 'js', 'Developer Ecosystem');
-addSimpleMapping('langs', 'html', 'Developer Ecosystem');
+}
 
+addSearchMapping('outreach', 'outreach', {status_whiteboard: ['mentor', 'contactready'],
+                                          status_whiteboard_type: ['allwords']});
+addSearchMapping('analysis', 'analysis', {f1: ["status_whiteboard"],
+                                          o1: ["nowords"],
+                                          v1: ["contactready sitewait"],
+                                          f3: ["product"],
+                                          o3: ["equals"],
+                                          v3: ["Tech Evangelism"],
+                                          f2: ["status_whiteboard"],
+                                          o2: ["substring"],
+                                          v2: ["mentor"]});
+//Languages
+addCompatLanguageMapping('arabic', 'country-ae');
+addCompatLanguageMapping('chinese', 'country-cn');
+addCompatLanguageMapping('croatian', 'country-cr');
+addCompatLanguageMapping('danish', 'country-dk');
+addCompatLanguageMapping('english', 'country-ca');
+addCompatLanguageMapping('english', 'country-us');
+addCompatLanguageMapping('english', 'country-uk');
+addCompatLanguageMapping('english', 'country-in');
+addCompatLanguageMapping('english', 'country-all');
+addCompatLanguageMapping('english', 'country-za');
+addCompatLanguageMapping('french', 'country-fr');
+addCompatLanguageMapping('german', 'country-de');
+addCompatLanguageMapping('greek', 'country-gr');
+addCompatLanguageMapping('hungarian', 'country-hu');
+addCompatLanguageMapping('japanese', 'country-jp');
+addCompatLanguageMapping('norwegian', 'country-no');
+addCompatLanguageMapping('portuguese', 'country-br');
+addCompatLanguageMapping('polish', 'country-pl');
+addCompatLanguageMapping('portuguese', 'country-pt');
+addCompatLanguageMapping('serbian', 'country-rs');
+addCompatLanguageMapping('spanish', 'country-es');
+addCompatLanguageMapping('spanish', 'country-ve');
+addCompatLanguageMapping('spanish', 'country-uy');
+addCompatLanguageMapping('spanish', 'country-mx');
+addCompatLanguageMapping('spanish', 'country-pe');
+addCompatLanguageMapping('spanish', 'country-co');
 
-addLanguageMapping('py', 'py');
-addLanguageMapping('sh', 'shell');
-addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
-addSimpleMapping('langs', 'sh', 'MailNews Core', 'Build Config');
-addSimpleMapping('langs', 'java', 'Core', 'Widget: Android');
-addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
-addLanguageMapping('java', 'java');
-addLanguageMapping('js', 'js');
-addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
-addLanguageMapping('cpp', 'c++');
-addLanguageMapping('html', 'html');
-addLanguageMapping('html', 'css');
-
-addSearchMapping('ownership', 'unowned',
-                 {assigned_to: ['nobody@mozilla.org', 'general@js.bugs']}
-                );
-addSearchMapping('simple', 'simple', {status_whiteboard: 'good first bug'});
+addSearchMapping('ownership', 'unowned', {assigned_to: ['nobody@mozilla.org']});
 
 var interestingComponents = [];
 
@@ -286,7 +136,7 @@ function rebuildTableContents() {
     }
     return new_list;
   }
-  
+
   var orderedBugList = [];
   var results = {};
   for (var group in groups) {
@@ -377,14 +227,14 @@ function rebuildTableContents() {
     elem.setAttribute('class', 'bug');
   }
   t.appendChild(content);
-  
+
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   pendingRequests--;
   if (pendingRequests === 0) {
     document.getElementById('throbber').style.visibility = "hidden";
   }
-  
+
   jQuery('.moreInfo').each(function(count){
           var qt = jQuery(this).qtip({
               content: jQuery(this).attr('alt'),
@@ -420,7 +270,7 @@ function retrieveResults(category) {
   if (category in resultsCache) {
     rebuildTableContents();
     return;
-  }  
+  }
 
   pendingRequests++;
   document.getElementById('throbber').style.visibility = "visible";
@@ -451,16 +301,15 @@ function retrieveResults(category) {
   }
 
   for (var i = 0; i < mapping.length; i++) {
-    var searchParams = {status_whiteboard: 'mentor=',
-                        whiteboard_type: 'contains_all',
-                        bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
-                        /*component_type: 'equals',*/
-                        product: ''};
+    var searchParams = {
+                        query_format: 'advanced',
+                        bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"]
+                       };
     for (var param in mapping[i]) {
       if (!(param in searchParams))
         searchParams[param] = [];
       if (typeof(searchParams[param]) == "string")
-        searchParams[param] += " " + mapping[i][param];
+        searchParams[param] += mapping[i][param];
       else {
         for (var j = 0; j < mapping[i][param].length; j++)
           searchParams[param].push(mapping[i][param][j]);
@@ -468,7 +317,7 @@ function retrieveResults(category) {
     }
     bugzilla.searchBugs(searchParams, processResult);
   }
-  
+
   for (var i = 0; i < ghMapping.length; i++) {
     (function(i) {
        var curMap = ghMapping[i];
@@ -493,7 +342,7 @@ function toggleCategory(e)
 {
   var id = e.target.getAttribute('id');
   var extra = document.getElementById(id + "-extra");
-  if (e.target.checked) {    
+  if (e.target.checked) {
     interestingComponents.push(id);
     if (extra)
       extra.style.display = "table";
@@ -506,7 +355,7 @@ function toggleCategory(e)
       extra.style.display = "none";
     rebuildTableContents();
   }
-  
+
   var query = [];
   var checks = document.getElementsByTagName("input");
   for (var i = 0; i < checks.length; i++) {

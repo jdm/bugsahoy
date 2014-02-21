@@ -1,10 +1,11 @@
 <html>
 <head>
   <title>Bugs Ahoy - find relevant Mozilla bugs</title>
+  <meta charset="utf-8">
 <!--UHOH-->
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="uitooltip.min.css">
-  
+
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="uitooltip.min.js"></script>
   <script type="text/javascript" src="bz-0.2.3.js"></script>
@@ -38,26 +39,32 @@ Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
       }
     }
 
-    addCategories([["a11y", "Accessibility"], ["build", "Build System"], ["gfx", "Graphics"], ["net", "Networking"],
-                   ["jseng", "Javascript Engine"], ["layout", "Layout"], ["dom", "DOM and CSS technology"],
-                   ["editor", "Input handling"], ["internals", "Firefox internals"],
-                   ["media", "Media"], ["mobile", "Mobile (Android)"], ["ff", "Firefox UI"],
-                   ["devtools", "Firefox Developer Tools"], ["releng", "Release Engineering"],
-                   ["automation", "Test Automation"], ["sync", "Firefox Sync"], ["thunderbird", "Thunderbird"],
-                   ["seamonkey", "SeaMonkey"], ["calendar", "Calendar"], ["b2g", "Boot2Gecko / Firefox OS"], ["metro", "Metro (Windows 8)"], ["webmaker","Webmaker"],
-                   ["appsengineering", "Apps Engineering"]]);
+    addCategories([["outreach", "Site Outreach"],
+                   ["analysis", "Bug Analysis"]]);
   </script>
 <br><br>
-Do you know: <br><br>
+Do you speak: <br><br>
 <script>
-    addCategories([["py", "Python"], ["java", "Java"], ["sh", "Shell/Makefile/Autoconf"],
-                   ["js", "Javascript"], ["cpp", "C/C++"], ["html", "HTML/CSS"]]);
+    addCategories([['arabic', 'Arabic'],
+                   ['chinese', 'Chinese'],
+                   ['croatian', 'Croatian'],
+                   ['danish', 'Danish'],
+                   ['english', 'English'],
+                   ['french', 'French'],
+                   ['german', 'German'],
+                   ['greek', 'Greek'],
+                   ['hungarian', 'Hungarian'],
+                   ['japanese', 'Japanese'],
+                   ['norwegian', 'Norwegian'],
+                   ['portuguese', 'Portuguese'],
+                   ['polish', 'Polish'],
+                   ['serbian', 'Serbian'],
+                   ['spanish', 'Spanish']]);
 </script>
 <br><br>
 Display only: <br><br>
 <script>
-    addCategories([["unowned", "Bugs with no owner"],
-                   ["simple", "Simple bugs"]]);
+    addCategories([["unowned", "Bugs with no owner"]]);
 </script>
 </div>
 
@@ -90,27 +97,15 @@ Display only: <br><br>
     extra.appendChild(elem);
   }
 
-  addExtra('mobile', 'Extra information for Mobile', 'Get involved with the <a href="https://wiki.mozilla.org/Mobile/Get_Involved" target="_blank">Mobile team</a>');
-  addExtra('java', 'Extra information for Java', 'Get involved with the <a href="https://wiki.mozilla.org/Mobile/Get_Involved" target="_blank">Mobile team</a>');
-  addExtra('py', 'Do you like Python?', 'Get involved with the <a href="https://wiki.mozilla.org/Auto-tools/New_Contributor/Skills_and_Areas" target="_blank">Auto-Tools</a> team<br>Get involved with the <a href="https://wiki.mozilla.org/ReleaseEngineering:Contribute">Release Engineering</a> team<br>Get involved with the <a href="https://wiki.mozilla.org/Webdev/GetInvolved">WebDev</a> team');
-  addExtra('gfx', 'Extra information for Graphics', 'Get involved with the <a href="https://wiki.mozilla.org/Platform/GFX/Contribute" target="_blank">Graphics</a> team');
-  addExtra('jseng', 'Extra information for the JS engine', 'Get involved with the <a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey" target="_blank">JS engine</a> team');
-  addExtra('a11y', 'Extra information for Accessibility', 'Get involved with the <a href="https://wiki.mozilla.org/Accessibility/Contribute" target="_blank">Accessibility</a> team');
-  addExtra('releng', 'Extra information for Release Engineering', 'Get involved with the <a href="https://wiki.mozilla.org/ReleaseEngineering:Contribute" target="_blank">Release Engineering</a> team');
-  addExtra('sync', 'Extra information for Firefox Sync' , 'Get involved with the <a href="https://wiki.mozilla.org/Services/Sync#Get_Involved" target="_blank">Sync</a> team');
-  addExtra('seamonkey', 'Extra information for SeaMonkey', 'Get involved with the <a href="http://www.seamonkey-project.org" target="_blank">SeaMonkey Project</a>');
-  addExtra('js', 'Extra information for JS', 'Get involved with the <a href="http://github.com/mozilla/pdf.js" target="_blank">pdf2js project</a><br>Get involved with the <a href="https://github.com/kripken/emscripten/">emscripten project</a><br>Get involved with the <a href="https://wiki.mozilla.org/Webdev/GetInvolved">WebDev</a> team');
-  addExtra('b2g', 'Extra information for Boot2Gecko', 'Get involved with the <a href="https://wiki.mozilla.org/B2G" target="_blank">Boot2Gecko project</a> and/or the <a href="http://wiki.mozilla.org/Gaia">Gaia project</a>');
-  addExtra('devtools', 'Extra information for Developer Tools', 'Get involved with the <a href="https://wiki.mozilla.org/DevTools/GetInvolved" target="_blank">devtools team</a>');
-  addExtra('webmaker', 'Extra information for Webmaker', 'Get involved with the <a href="http://webmaker.org" target="_blank">Webmaker team</a>');
-  addExtra('appsengineering', 'Extra information for Apps Engineering', 'Get involved with the <a href="https://wiki.mozilla.org/Apps/Engineering" target="_blank">Apps Engineering team</a>');
+  addExtra('outreach', 'More info for Site Outreach', 'It may be helpful to read <a href="https://wiki.mozilla.org/Compatibility/Guide#Finding_The_Right_Contact_on_a_Web_site">How to find a contact for a website</a>.');
+  addExtra('analysis', 'More info for Bug Analysis', 'It may be helpful to read <a href="https://wiki.mozilla.org/Compatibility/Guide#Analyzing_for_Web_Compatibility_Issues">Analyzing Web Compatibility Issues</a>.');
 
   function initial_state() {
     var query = window.location.search;
     if (query.length == 0) return;
 
-    function check_state (sVar) {  
-      return unescape(query.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+    function check_state (sVar) {
+      return unescape(query.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
     }
     var checks = document.getElementsByTagName("input");
     for (var i = 0; i < checks.length; i++) {
