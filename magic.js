@@ -258,6 +258,8 @@ addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
 addLanguageMapping('cpp', 'c++');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
+addLanguageMapping('xml', 'xul');
+addLanguageMapping('xml', 'xml');
 
 addSearchMapping('ownership', 'unowned',
                  {assigned_to: ['nobody@mozilla.org', 'general@js.bugs']}
