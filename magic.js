@@ -95,7 +95,7 @@ addComponentMapping('layout', 'Core',
                      'Layout: Text',
                      'Layout: View Rendering']);
 addComponentMapping('dom', 'Core',
-                    ['Style System (CSS)',
+                    ['CSS Parsing and Computation',
                      'SVG', 'DOM',
                      'DOM: Core & HTML',
                      'DOM: CSS Object Model',
