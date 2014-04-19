@@ -137,9 +137,12 @@ addComponentMapping('mobile', 'Firefox for Android');
 addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
 addComponentMapping('jseng', 'Core',
                     ['Javascript Engine',
+                     'JavaScript Engine: JIT',
+                     'JavaScript: GC',
+                     'JavaScript: Internationalization API',
+                     'JavaScript: Standard Library',
                      'js-ctypes',
-                     'XPConnect',
-                     'Nanojit']);
+                     'XPConnect']);
 addComponentMapping('media', 'Core', ['Video/Audio', 'WebRTC', 'WebRTC: Audio/Video',
                                       'WebRTC: Signalling']);
 addComponentMapping('ff', 'Firefox');
