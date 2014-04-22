@@ -55,10 +55,10 @@ function addGithubMapping(group, cat, repos, tags) {
       repo: repos[i],
       tag: tags[j]
     });
-  
+
   if (!groups[group])
     groups[group] = [];
-  
+
   groups[group].push(cat);
 }
 
@@ -180,11 +180,11 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                                          'mozilla/moz-grid-config',
                                          'mozilla/mozdownload',
                                          'mozilla/mozmill-ci',
-                                         'mozilla/nightlytt',
-                                         'whimboo/mozmill-automation',
+                                         'mozilla/mozmill-automation',
                                          'whimboo/mozmill-crowd',
                                          'mozilla/mozmill-dashboard',
-                                         'whimboo/mozmill-environment'], 'mentored');
+                                         'mozilla/mozmill-environment',
+                                         'mozilla/nightlytt'], 'mentored');
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
@@ -291,7 +291,7 @@ function rebuildTableContents() {
     }
     return new_list;
   }
-  
+
   var orderedBugList = [];
   var results = {};
   for (var group in groups) {
@@ -382,14 +382,14 @@ function rebuildTableContents() {
     elem.setAttribute('class', 'bug');
   }
   t.appendChild(content);
-  
+
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   pendingRequests--;
   if (pendingRequests === 0) {
     document.getElementById('throbber').style.visibility = "hidden";
   }
-  
+
   jQuery('.moreInfo').each(function(count){
           var qt = jQuery(this).qtip({
               content: jQuery(this).attr('alt'),
@@ -425,7 +425,7 @@ function retrieveResults(category) {
   if (category in resultsCache) {
     rebuildTableContents();
     return;
-  }  
+  }
 
   pendingRequests++;
   document.getElementById('throbber').style.visibility = "visible";
@@ -473,7 +473,7 @@ function retrieveResults(category) {
     }
     bugzilla.searchBugs(searchParams, processResult);
   }
-  
+
   for (var i = 0; i < ghMapping.length; i++) {
     (function(i) {
        var curMap = ghMapping[i];
@@ -498,7 +498,7 @@ function toggleCategory(e)
 {
   var id = e.target.getAttribute('id');
   var extra = document.getElementById(id + "-extra");
-  if (e.target.checked) {    
+  if (e.target.checked) {
     interestingComponents.push(id);
     if (extra)
       extra.style.display = "table";
@@ -511,7 +511,7 @@ function toggleCategory(e)
       extra.style.display = "none";
     rebuildTableContents();
   }
-  
+
   var query = [];
   var checks = document.getElementsByTagName("input");
   for (var i = 0; i < checks.length; i++) {
