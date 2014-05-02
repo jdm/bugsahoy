@@ -246,6 +246,7 @@ addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
 addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
 addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
+addSimpleMapping('langs', 'perl', 'Bugzilla', 'bugzilla.mozilla.org');
 addLanguageMapping('cpp', 'c');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
