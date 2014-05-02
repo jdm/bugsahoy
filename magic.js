@@ -67,6 +67,37 @@ function addGithubComponentMapping(cat, repos, tags) {
 }
 
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
+addComponentMapping('bugzilla', 'Bugzilla', 
+                    ['Administration',
+                     'Attachments & Requests',
+                     'Bug Import/Export & Moving',
+                     'Bugzilla-General', 
+                     'bugzilla.org',
+                     'Creating/Changing Bugs',
+                     'Documentation',
+                     'Email Notifications',
+                     'Extensions',
+                     'QA Test Scripts',
+                     'Query/Bug Lists',
+                     'Testing Suite',
+                     'User Accounts',
+                     'User Interface',
+                     'WebService',
+                     'Whining']);
+addComponentMapping('bugzilla', 'bugzilla.mozilla.org',
+                    ['Administration',
+                     'API',
+                     'Bugzilla Tweaks',
+                     'Developer Box',
+                     'Extensions: AntiSpam',
+                     'Extensions: BMO',
+                     'Extensions: ComponentWatching',
+                     'Extensions: MyDashboard',
+                     'Extensions: Needinfo',
+                     'Extensions: UserProfile',
+                     'General',
+                     'Sandstone/Mozilla Skin',
+                     'User Interface']);
 addComponentMapping('build', 'Core', ['Build Config']);
 addComponentMapping('build', 'MailNews Core', ['Build Config']);
 addComponentMapping('gfx', 'Core',
@@ -246,7 +277,6 @@ addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
 addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
 addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
-addSimpleMapping('langs', 'perl', 'Bugzilla', 'bugzilla.mozilla.org');
 addLanguageMapping('cpp', 'c');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
