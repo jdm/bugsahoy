@@ -267,6 +267,7 @@ addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
 addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
 addLanguageMapping('cpp', 'c++');
+addSimpleMapping('langs', 'perl', 'Bugzilla', 'bugzilla.mozilla.org');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
 addLanguageMapping('xml', 'xul');
