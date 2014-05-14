@@ -62,8 +62,11 @@ function addGithubMapping(group, cat, repos, tags) {
   groups[group].push(cat);
 }
 
-function addGithubComponentMapping(cat, repos, tags) {
+function addGithubComponentMapping(cat, repos, tags, langs) {
   addGithubMapping('components', cat, repos, tags);
+  for (var lang in langs) {
+    addGithubMapping('langs', lang, repos, langs[lang]);
+  }
 }
 
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
@@ -184,7 +187,8 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                                          'whimboo/mozmill-crowd',
                                          'mozilla/mozmill-dashboard',
                                          'mozilla/mozmill-environment',
-                                         'mozilla/nightlytt'], 'mentored');
+                                         'mozilla/nightlytt'], 'mentored',
+                          {'py': 'py'});
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
