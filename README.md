@@ -17,8 +17,8 @@ password = yourpassword
 * run `python -m CGIHTTPServer` in the repository root and visit `localhost:8000`
 
 Authors:
-Josh Matthews <josh@joshmatthews.net>
-Casey Becking <caseybecking on github>
 
-Special thanks to:
-Heather Arthur for bz.js (https://github.com/harthur/bz.js)
+* Josh Matthews <josh@joshmatthews.net>
+* Casey Becking <caseybecking on github>
+
+Special thanks to Heather Arthur for bz.js (https://github.com/harthur/bz.js)
