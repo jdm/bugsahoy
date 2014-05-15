@@ -190,9 +190,9 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                                          'mozilla/nightlytt'], 'mentored',
                           {'css': 'css',
                            'html': 'html',
-                           'javascript': 'js',
-                           'python': 'py',
-                           'shell': 'sh' });
+                           'js': 'javascript',
+                           'py': 'python',
+                           'sh': 'shell' });
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
