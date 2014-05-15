@@ -188,7 +188,11 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                                          'mozilla/mozmill-dashboard',
                                          'mozilla/mozmill-environment',
                                          'mozilla/nightlytt'], 'mentored',
-                          {'py': 'py'});
+                          {'css': 'css',
+                           'html': 'html',
+                           'javascript': 'js',
+                           'python': 'py',
+                           'shell': 'sh' });
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
