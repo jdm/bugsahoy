@@ -72,6 +72,37 @@ function addGithubComponentMapping(cat, repos, tags, langs) {
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
 addComponentMapping('a11y', 'Firefox', 'Disability Access');
 addSearchMapping('components', 'a11y', {keywords: ['access']});
+addComponentMapping('bugzilla', 'Bugzilla',
+                    ['Administration',
+                     'Attachments & Requests',
+                     'Bug Import/Export & Moving',
+                     'Bugzilla-General',
+                     'bugzilla.org',
+                     'Creating/Changing Bugs',
+                     'Documentation',
+                     'Email Notifications',
+                     'Extensions',
+                     'QA Test Scripts',
+                     'Query/Bug Lists',
+                     'Testing Suite',
+                     'User Accounts',
+                     'User Interface',
+                     'WebService',
+                     'Whining']);
+addComponentMapping('bugzilla', 'bugzilla.mozilla.org',
+                    ['Administration',
+                     'API',
+                     'Bugzilla Tweaks',
+                     'Developer Box',
+                     'Extensions: AntiSpam',
+                     'Extensions: BMO',
+                     'Extensions: ComponentWatching',
+                     'Extensions: MyDashboard',
+                     'Extensions: Needinfo',
+                     'Extensions: UserProfile',
+                     'General',
+                     'Sandstone/Mozilla Skin',
+                     'User Interface']);
 addComponentMapping('build', 'Core', ['Build Config']);
 addComponentMapping('build', 'MailNews Core', ['Build Config']);
 addComponentMapping('gfx', 'Core',
@@ -267,6 +298,8 @@ addLanguageMapping('java', 'java');
 addLanguageMapping('js', 'js');
 addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
 addLanguageMapping('cpp', 'c++');
+addSimpleMapping('langs', 'perl', 'Bugzilla');
+addSimpleMapping('langs', 'perl', 'bugzilla.mozilla.org');
 addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
 addLanguageMapping('xml', 'xul');
