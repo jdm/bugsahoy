@@ -101,6 +101,7 @@ addComponentMapping('bugzilla', 'bugzilla.mozilla.org',
                      'Extensions: Needinfo',
                      'Extensions: UserProfile',
                      'General',
+                     'rbbz',
                      'Sandstone/Mozilla Skin',
                      'User Interface']);
 addComponentMapping('build', 'Core', ['Build Config']);
