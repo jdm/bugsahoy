@@ -211,6 +211,7 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                                          'davehunt/flynnid',
                                          'davehunt/pytest-mozwebqa',
                                          'mozilla/bidpom',
+                                         'mozilla/coversheet',
                                          'mozilla/memchaser',
                                          'mozilla/moz-grid-config',
                                          'mozilla/mozdownload',
