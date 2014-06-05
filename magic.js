@@ -109,7 +109,7 @@ addComponentMapping('build', 'MailNews Core', ['Build Config']);
 addComponentMapping('gfx', 'Core',
                     ['Graphics', 'GFX: Color Management',
                      'Canvas: WebGL', 'Canvas: 2D', 'ImageLib', 'Graphics',
-                     'Graphics: Layers', 'Graphics: Text']);
+                     'Graphics: Layers', 'Graphics: Text', 'Panning and Zooming']);
 addComponentMapping('net', 'Core',
                     ['Networking',
                      'Networking: HTTP',
