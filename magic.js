@@ -1,4 +1,4 @@
-var bugzilla = bz.createClient();
+var bugzilla = bz.createClient({url: 'https://bugzilla.mozilla.org/bzapi'});
 
 var categoryMapping = {};
 var groups = {};
@@ -499,7 +499,8 @@ function retrieveResults(category) {
   }
 
   for (var i = 0; i < mapping.length; i++) {
-    var searchParams = {status_whiteboard: 'mentor=',
+    var searchParams = {bug_mentor: '@',
+                        bug_mentor_type: 'contains',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
                         /*component_type: 'equals',*/
