@@ -289,6 +289,7 @@ addComponentMapping('appsengineering', 'Developer Ecosystem', ['App Center', 'Ap
 addSimpleMapping('langs', 'js', 'Developer Ecosystem');
 addSimpleMapping('langs', 'html', 'Developer Ecosystem');
 
+addGithubComponentMapping('servo', ['mozilla/servo'], 'E-easy');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
@@ -473,7 +474,7 @@ function retrieveResults(category) {
   pendingRequests++;
   document.getElementById('throbber').style.visibility = "visible";
 
-  var mapping = categoryMapping[category];
+  var mapping = categoryMapping[category] || [];
   var ghMapping = githubMapping[category] || [];
   var expectedResults = mapping.length + ghMapping.length;
 
