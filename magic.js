@@ -167,6 +167,8 @@ addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigat
                                           'Identity', 'Localization']);
 addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
+addComponentMapping('instantbird', 'Instantbird');
+addComponentMapping('instantbird', 'Chat Core');
 addComponentMapping('mobile', 'Fennec');
 addComponentMapping('mobile', 'Firefox for Android');
 addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
