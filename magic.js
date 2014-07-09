@@ -509,11 +509,14 @@ function retrieveResults(category) {
                         /*component_type: 'equals',*/
                         product: ''};
     for (var param in mapping[i]) {
-      if (!(param in searchParams))
-        searchParams[param] = [];
-      if (typeof(searchParams[param]) == "string")
-        searchParams[param] += " " + mapping[i][param];
-      else {
+      if (typeof(mapping[i][param]) == "string") {
+        if (!(param in searchParams))
+          searchParams[param] = mapping[i][param];
+        else 
+          searchParams[param] += " " + mapping[i][param];
+      } else {
+        if (!(param in searchParams))
+          searchParams[param] = [];
         for (var j = 0; j < mapping[i][param].length; j++)
           searchParams[param].push(mapping[i][param][j]);
       }
