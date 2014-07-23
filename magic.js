@@ -506,6 +506,7 @@ function retrieveResults(category) {
                         bug_mentor_type: 'contains',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
+                        include_fields: ["id","assigned_to","summary","last_change_time"],
                         /*component_type: 'equals',*/
                         product: ''};
     for (var param in mapping[i]) {
