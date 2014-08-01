@@ -206,6 +206,7 @@ addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
 addComponentMapping('releng', 'Release Engineering');
 addComponentMapping('automation', 'Firefox OS', 'Gaia::UI Tests');
 addComponentMapping('automation', 'Testing');
+addComponentMapping('oneanddone','Mozilla QA', 'One and Done');
 addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
                                          'automatedtester/powerball-platform',
                                          'automatedtester/testdaybot',
