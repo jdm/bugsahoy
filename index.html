@@ -111,6 +111,7 @@ Display only: <br><br>
   addExtra ('oneanddone', 'Extra information for One and Done', 'Get involved with the <a href="https://github.com/mozilla/oneanddone/blob/master/README.md>One and Done</a> project"');
 
   function initial_state() {
+    document.getElementById('unowned').checked = true;
     var query = window.location.search;
     if (query.length == 0) return;
 
