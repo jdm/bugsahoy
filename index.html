@@ -4,7 +4,7 @@
 <!--UHOH-->
   <link rel="stylesheet" type="text/css" href="style.css">
   <link rel="stylesheet" type="text/css" href="uitooltip.min.css">
-  
+
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <script type="text/javascript" src="uitooltip.min.js"></script>
   <script type="text/javascript" src="bz-0.2.3.js"></script>
@@ -42,7 +42,7 @@ Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
                    ["jseng", "Javascript Engine"], ["layout", "Layout"], ["dom", "DOM and CSS technology"],
                    ["editor", "Input handling"], ["internals", "Firefox internals"], ["instantbird", "Instantbird"],
                    ["media", "Media"], ["mobile", "Mobile (Android)"], ["ff", "Firefox UI"],
-                   ["devtools", "Firefox Developer Tools"], ["releng", "Release Engineering"],
+                   ["devtools", "Firefox Developer Tools"], ["releng", "Release Engineering"], ["reporting", "Dashboards and Reporting"],
                    ["automation", "Test Automation"], ["sync", "Firefox Sync"], ["thunderbird", "Thunderbird"],
                    ["seamonkey", "SeaMonkey"], ["calendar", "Calendar"], ["b2g", "Boot2Gecko / Firefox OS"], ["metro", "Metro (Windows 8)"], ["webmaker","Webmaker"],
                    ["appsengineering", "Apps Engineering"], ["servo", "Servo"], ["oneanddone", "One and Done"]]);
@@ -98,6 +98,7 @@ Display only: <br><br>
   addExtra('jseng', 'Extra information for the JS engine', 'Get involved with the <a href="https://wiki.mozilla.org/JavaScript:New_to_SpiderMonkey" target="_blank">JS engine</a> team');
   addExtra('a11y', 'Extra information for Accessibility', 'Get involved with the <a href="https://wiki.mozilla.org/Accessibility/Contribute" target="_blank">Accessibility</a> team');
   addExtra('releng', 'Extra information for Release Engineering', 'Get involved with the <a href="https://wiki.mozilla.org/ReleaseEngineering:Contribute" target="_blank">Release Engineering</a> team');
+  addExtra('reporting', 'Extra information for Treeherder', 'Find out more about the <a href="https://github.com/mozilla/treeherder-ui" target="_blank">Treeherder</a> dashboard and its components');
   addExtra('sync', 'Extra information for Firefox Sync' , 'Get involved with the <a href="https://wiki.mozilla.org/Services/Sync#Get_Involved" target="_blank">Sync</a> team');
   addExtra('seamonkey', 'Extra information for SeaMonkey', 'Get involved with the <a href="http://www.seamonkey-project.org" target="_blank">SeaMonkey Project</a>');
   addExtra('js', 'Extra information for JS', 'Get involved with the <a href="http://github.com/mozilla/pdf.js" target="_blank">pdf2js project</a><br>Get involved with the <a href="https://github.com/kripken/emscripten/">emscripten project</a><br>Get involved with the <a href="https://wiki.mozilla.org/Webdev/GetInvolved">WebDev</a> team');
@@ -114,8 +115,8 @@ Display only: <br><br>
     var query = window.location.search;
     if (query.length == 0) return;
 
-    function check_state (sVar) {  
-      return unescape(query.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));  
+    function check_state (sVar) {
+      return unescape(query.replace(new RegExp("^(?:.*[&\\?]" + escape(sVar).replace(/[\.\+\*]/g, "\\$&") + "(?:\\=([^&]*))?)?.*$", "i"), "$1"));
     }
     var checks = document.getElementsByTagName("input");
     for (var i = 0; i < checks.length; i++) {
