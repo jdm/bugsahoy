@@ -6,15 +6,15 @@ involved.
 
 To run a local copy:
 
-* clone this repository
-* add a `config` file in the root dir that contains the following:
+* Clone this repository
+* Add a `config` file in the root dir that contains the following:
 <pre>
 [github]
 username = yourusername
 password = yourpassword
 </pre>
 
-* run `python -m CGIHTTPServer` in the repository root and visit `localhost:8000`
+* Run `python -m CGIHTTPServer` in the repository root and visit `localhost:8000`
 
 Authors:
 
