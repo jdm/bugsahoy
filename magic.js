@@ -300,7 +300,7 @@ addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
 addSimpleMapping('langs', 'sh', 'MailNews Core', 'Build Config');
 addSimpleMapping('langs', 'java', 'Core', 'Widget: Android');
 addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
-addLanguageMapping('java', 'java');
+addLanguageMapping('java', 'java]');
 addLanguageMapping('js', 'js');
 addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
 addLanguageMapping('cpp', 'c++');
