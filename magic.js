@@ -205,9 +205,12 @@ addComponentMapping('devtools', 'Firefox',
 addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
 addComponentMapping('releng', 'Release Engineering');
 addComponentMapping('reporting', 'Tree Management');
+
+// Mappings for various automation related tasks
 addComponentMapping('automation', 'Firefox OS', 'Gaia::UI Tests');
+addComponentMapping('automation', 'Mozilla QA', ['Infrastructure',
+                                                 'Mozmill Tests']);
 addComponentMapping('automation', 'Testing');
-addComponentMapping('oneanddone','Mozilla QA', 'One and Done');
 addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
                                          'automatedtester/powerball-platform',
                                          'automatedtester/testdaybot',
@@ -230,6 +233,9 @@ addGithubComponentMapping('automation', ['automatedtester/automation-services-bo
                            'js': 'javascript',
                            'py': 'python',
                            'sh': 'shell' });
+
+addComponentMapping('oneanddone','Mozilla QA', 'One and Done');
+
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
@@ -515,7 +521,7 @@ function retrieveResults(category) {
       if (typeof(mapping[i][param]) == "string") {
         if (!(param in searchParams))
           searchParams[param] = mapping[i][param];
-        else 
+        else
           searchParams[param] += " " + mapping[i][param];
       } else {
         if (!(param in searchParams))
