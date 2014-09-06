@@ -173,7 +173,7 @@ addComponentMapping('mobile', 'Fennec');
 addComponentMapping('mobile', 'Firefox for Android');
 addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
 addComponentMapping('jseng', 'Core',
-                    ['Javascript Engine',
+                    ['JavaScript Engine',
                      'JavaScript Engine: JIT',
                      'JavaScript: GC',
                      'JavaScript: Internationalization API',
