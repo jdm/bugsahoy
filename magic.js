@@ -299,7 +299,7 @@ addComponentMapping('appsengineering', 'Developer Ecosystem', ['App Center', 'Ap
 addSimpleMapping('langs', 'js', 'Developer Ecosystem');
 addSimpleMapping('langs', 'html', 'Developer Ecosystem');
 
-addGithubComponentMapping('servo', ['mozilla/servo'], 'E-easy');
+addGithubComponentMapping('servo', ['servo/servo'], 'E-easy');
 
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
