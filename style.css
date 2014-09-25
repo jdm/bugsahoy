@@ -85,6 +85,12 @@ a.diamondBugLink {
   padding-left: 0px;
 }
 
+.ba-twitter {
+      float: left;
+      width: 25%;
+      margin-left: 5.2em;
+}
+
 .ba-extra_header {
       background-color: #E4E4E4;
       overflow: hidden;
