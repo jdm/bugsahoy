@@ -81,6 +81,11 @@ div .bug {
   padding-left: 0px;
 }
 
+.ba-twitter {
+      float: right;
+      padding: 9px 14px;
+}
+
 .ba-extra_header {
       background-color: #E4E4E4;
       overflow: hidden;
