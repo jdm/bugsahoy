@@ -1,4 +1,4 @@
-var bugzilla = bz.createClient();
+var bugzilla = bz.createClient({url: "https://bugzilla.mozilla.org/bzapi/"});
 
 var categoryMapping = {};
 var groups = {};
