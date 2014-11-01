@@ -510,8 +510,8 @@ function retrieveResults(category) {
   }
 
   for (var i = 0; i < mapping.length; i++) {
-    var searchParams = {bug_mentor: '@',
-                        bug_mentor_type: 'contains',
+    var searchParams = {f1: 'bug_mentor',
+                        o1: 'isnotempty',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
                         include_fields: ["id","assigned_to","summary","last_change_time"],
