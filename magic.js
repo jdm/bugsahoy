@@ -439,7 +439,6 @@ function rebuildTableContents() {
 
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
-  pendingRequests--;
   if (pendingRequests === 0) {
     document.getElementById('throbber').style.visibility = "hidden";
   }
@@ -505,6 +504,7 @@ function retrieveResults(category) {
           resultsCache[category].push(unfinishedResults[category][i]);
       }
       delete unfinishedResults[category];
+      pendingRequests--;
       rebuildTableContents();
     }
   }
