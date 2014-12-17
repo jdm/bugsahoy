@@ -255,6 +255,7 @@ addComponentMapping('calendar', 'Calendar');
 addComponentMapping('b2g', 'Firefox OS');
 addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
 addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
+addComponentMapping('marketplace', 'Marketplace');
 addComponentMapping('contentservices', 'Content Services', ['Interest Dashboard']);
 addComponentMapping('webmaker', 'Webmaker', ['Badges',
                                              'Community',
