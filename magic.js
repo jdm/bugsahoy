@@ -71,6 +71,7 @@ function addGithubComponentMapping(cat, repos, tags, langs) {
 
 addComponentMapping('a11y', 'Core', 'Disability Access APIs');
 addComponentMapping('a11y', 'Firefox', 'Disability Access');
+addComponentMapping('addons', 'addons.mozilla.org');
 addSearchMapping('components', 'a11y', {keywords: ['access']});
 addComponentMapping('bugzilla', 'Bugzilla',
                     ['Administration',
