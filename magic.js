@@ -169,9 +169,10 @@ addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
 addComponentMapping('instantbird', 'Instantbird');
 addComponentMapping('instantbird', 'Chat Core');
-addComponentMapping('mobile', 'Fennec');
-addComponentMapping('mobile', 'Firefox for Android');
-addComponentMapping('mobile', 'Core', ['Widget: Android', 'mozglue']);
+addComponentMapping('mobileandroid', 'Fennec');
+addComponentMapping('mobileandroid', 'Firefox for Android');
+addComponentMapping('mobileandroid', 'Core', ['Widget: Android', 'mozglue']);
+addComponentMapping('mobileios', 'Firefox for iOS');
 addComponentMapping('jseng', 'Core',
                     ['JavaScript Engine',
                      'JavaScript Engine: JIT',
@@ -584,4 +585,3 @@ function toggleCategory(e)
   }
   history.replaceState(null, '', window.location.pathname + '?' + query.join('&'));
 }
-
