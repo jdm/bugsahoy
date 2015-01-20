@@ -210,7 +210,8 @@ addComponentMapping('reporting', 'Tree Management');
 
 // Mappings for various automation related tasks
 addComponentMapping('automation', 'Firefox OS', 'Gaia::UI Tests');
-addComponentMapping('automation', 'Mozilla QA', ['Infrastructure',
+addComponentMapping('automation', 'Mozilla QA', ['Firefox UI Tests',
+                                                 'Infrastructure',
                                                  'Mozmill Tests']);
 addComponentMapping('automation', 'Testing');
 addGithubComponentMapping('automation', ['automatedtester/automation-services-bot',
