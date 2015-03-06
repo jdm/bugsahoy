@@ -551,6 +551,7 @@ function retrieveResults(category) {
            data[d].assigned_to = data.assignee || {real_name: "nobody"};
            data[d].summary = user + '/' + name + ' - ' + data[d].title;
            data[d].last_change_time = data[d].updated_at;
+           data[d].component = name;
          }
          processResult(null, data);
       }).error(function() { processResult(null, []); });
