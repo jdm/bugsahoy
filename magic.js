@@ -421,9 +421,9 @@ function rebuildTableContents() {
 
     elem.setAttribute('class', "bug moreInfo");
     if (daysOld !== 1) {
-        elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+        elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name + " <br /> Component : " + orderedBugList[idx].component);
     }else{
-        elem.setAttribute('alt', daysOld + " day since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+        elem.setAttribute('alt', daysOld + " day since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name + " <br /> Component : " + orderedBugList[idx].component);
     }
 
 
@@ -519,7 +519,7 @@ function retrieveResults(category) {
                         o1: 'isnotempty',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
-                        include_fields: ["id","assigned_to","summary","last_change_time"],
+                        include_fields: ["id","assigned_to","summary","last_change_time","component"],
                         /*component_type: 'equals',*/
                         product: ''};
     for (var param in mapping[i]) {
