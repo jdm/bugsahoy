@@ -423,7 +423,7 @@ function rebuildTableContents() {
     if (daysOld !== 1) {
         elem.setAttribute('alt', daysOld + " days since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name + " <br /> Component : " + orderedBugList[idx].component);
     }else{
-        elem.setAttribute('alt', daysOld + " day since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name);
+        elem.setAttribute('alt', daysOld + " day since last update<br /> Assigned to : " + orderedBugList[idx].assigned_to.real_name + " <br /> Component : " + orderedBugList[idx].component);
     }
 
 
