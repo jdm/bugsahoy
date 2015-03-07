@@ -495,7 +495,7 @@ function retrieveResults(category) {
   content.id = "bugs_content";
   var elem = document.createElement('div');
   var inner = document.createElement('span');
-  var text = document.createTextNode('Loading bugs...');
+  var text = document.createTextNode('Loading...');
   inner.appendChild(text);
   elem.appendChild(inner);
   content.appendChild(elem);
