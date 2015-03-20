@@ -433,7 +433,7 @@ function rebuildTableContents() {
     var elem = document.createElement('div');
     var inner = document.createElement('span');
     var text = document.createTextNode(interestingComponents.length == 0 ?
-                                       'No categories specified' :
+                                       'No categories specified.' :
                                        'No bugs found');
     inner.appendChild(text);
     elem.appendChild(inner);
@@ -487,6 +487,20 @@ function retrieveResults(category) {
 
   pendingRequests++;
   document.getElementById('throbber').style.visibility = "visible";
+
+  // Display loading information
+  var t = document.getElementById('bugs');
+  t.removeChild(document.getElementById('bugs_content'));
+  var content = document.createElement('div');
+  content.id = "bugs_content";
+  var elem = document.createElement('div');
+  var inner = document.createElement('span');
+  var text = document.createTextNode('Loading...');
+  inner.appendChild(text);
+  elem.appendChild(inner);
+  content.appendChild(elem);
+  elem.setAttribute('class', 'bug');
+  t.appendChild(content);
 
   var mapping = categoryMapping[category] || [];
   var ghMapping = githubMapping[category] || [];
