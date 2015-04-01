@@ -188,6 +188,7 @@ addComponentMapping('ff', 'Toolkit');
 addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
 addComponentMapping('ff', 'Input', ['Frontend', 'General']);
 addComponentMapping('ff', 'Loop', ['Client']);
+addComponentMapping('loop', 'Loop');
 addComponentMapping('devtools', 'Firefox',
                     ['Developer Tools',
                      'Developer Tools: 3D View',
