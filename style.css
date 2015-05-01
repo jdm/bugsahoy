@@ -141,3 +141,7 @@ a.diamondBugLink {
     font-weight: normal;
 }
 
+#sidebar {
+  float: left;
+  padding-right: 10px;
+}
