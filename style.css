@@ -53,6 +53,10 @@ div .bug {
       padding-left: 14px;
 }
 
+a.diamondBugLink {
+      background-color: yellow;
+}
+
 /*#help {
     background: #F9F9F9;
     border: 1px black dashed;
