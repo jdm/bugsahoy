@@ -393,6 +393,7 @@ function rebuildTableContents() {
           ).length == 0)
         continue;
     }
+
     var intersect_ids = results[group].map(function(bug) { return bug.id; });
     orderedBugList = orderedBugList.filter(function(bug) {
                                              return intersect_ids.indexOf(bug.id) != -1;
@@ -412,10 +413,6 @@ function rebuildTableContents() {
     var url = bug.html_url || "http://bugzil.la/" + bug.id;
     link.setAttribute('href', url);
     link.setAttribute('target', "_blank");
-    // Check if the bug is marked as diamond
-    if (bug.whiteboard.indexOf("diamond") > -1) {
-	link.setAttribute('class', 'diamondBugLink');
-    }
     var text = document.createTextNode(bug.id);
     var text2 = document.createTextNode(" - " + bug.summary);
     elem.appendChild(inner);
@@ -539,7 +536,7 @@ function retrieveResults(category) {
                         o1: 'isnotempty',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
-                        include_fields: ["id","assigned_to","summary","last_change_time","component","whiteboard"],
+                        include_fields: ["id","assigned_to","summary","last_change_time","component"],
                         /*component_type: 'equals',*/
                         product: ''};
     for (var param in mapping[i]) {
