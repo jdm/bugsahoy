@@ -413,6 +413,10 @@ function rebuildTableContents() {
     var url = bug.html_url || "http://bugzil.la/" + bug.id;
     link.setAttribute('href', url);
     link.setAttribute('target', "_blank");
+    // Check if the bug has been marked as diamond
+    if (bug.whiteboard && bug.whiteboard.indexOf("diamond") > 0) {
+	link.setAttribute('class', 'diamond-bug');
+    }
     var text = document.createTextNode(bug.id);
     var text2 = document.createTextNode(" - " + bug.summary);
     elem.appendChild(inner);
@@ -536,8 +540,8 @@ function retrieveResults(category) {
                         o1: 'isnotempty',
                         whiteboard_type: 'contains_all',
                         bug_status: ["NEW","ASSIGNED","REOPENED", "UNCONFIRMED"],
-                        include_fields: ["id","assigned_to","summary","last_change_time","component"],
-                        /*component_type: 'equals',*/
+                        include_fields: ["id","assigned_to","summary","last_change_time","component","whiteboard"],
+			/*component_type: 'equals',*/
                         product: ''};
     for (var param in mapping[i]) {
       if (typeof(mapping[i][param]) == "string") {
