@@ -62,6 +62,10 @@ div .bug {
     display: none;   
 }*/
 
+a.diamond-bug {
+  background-color: yellow;
+}
+
 #ba-extra {
     list-style-type: none;
     margin-top: 0;
