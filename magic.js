@@ -394,7 +394,7 @@ function rebuildTableContents() {
     var inner = document.createElement('span');
     var link = document.createElement('a');
     elem.setAttribute('tabindex', '0');
-    var url = bug.html_url || "http://bugzil.la/" + bug.id;
+    var url = bug.html_url || "https://bugzilla.mozilla.org/" + bug.id;
     link.setAttribute('href', url);
     link.setAttribute('target', "_blank");
     var text = document.createTextNode(bug.id);
