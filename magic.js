@@ -340,6 +340,8 @@ var pendingRequests = 0;
 function rebuildTableContents() {
   var t = document.getElementById('bugs');
   t.removeChild(document.getElementById('bugs_content'));
+  var simple_hint = document.getElementById('simple-hint');
+  var simple_checkbox = document.getElementById('simple');
 
   function unique_list(list, tr) {
     var uniq = {};
@@ -449,6 +451,9 @@ function rebuildTableContents() {
   }
   t.appendChild(content);
 
+  simple_hint.style.display = (!simple_checkbox.checked && orderedBugList.length > 0) ?
+                             "block" : "none";
+
   document.getElementById('total').textContent = '(' + orderedBugList.length + ')';
 
   if (pendingRequests === 0) {
@@ -508,6 +513,9 @@ function retrieveResults(category) {
   content.appendChild(elem);
   elem.setAttribute('class', 'bug');
   t.appendChild(content);
+
+  var simple_hint = document.getElementById('simple-hint');
+  simple_hint.style.display = "none";
 
   var mapping = categoryMapping[category] || [];
   var ghMapping = githubMapping[category] || [];
@@ -583,8 +591,14 @@ function retrieveResults(category) {
 function toggleCategory(e)
 {
   var id = e.target.getAttribute('id');
+  toggleCategoryById(id);
+}
+
+function toggleCategoryById(id)
+{
+  var node = document.getElementById(id);
   var extra = document.getElementById(id + "-extra");
-  if (e.target.checked) {
+  if (node.checked) {
     interestingComponents.push(id);
     if (extra)
       extra.style.display = "table";
