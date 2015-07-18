@@ -150,6 +150,6 @@ a.diamond-bug {
     display: none;
 }
 
-#simple-hint-yes {
+#simple-hint input {
     float: right;
 }
