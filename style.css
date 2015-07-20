@@ -22,6 +22,14 @@ top: 100px;*/
     width: 100%;
 }
 
+.choice-group {
+    padding-bottom: 1.5em;
+}
+
+.choice-group div:first-of-type {
+    font-weight: bold;
+}
+
 #ba-choices label {
     margin: 0.5em;
 }

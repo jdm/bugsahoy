@@ -39,18 +39,86 @@ Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
       }
     }
 
-    addCategories([["a11y", "Accessibility"], ["bugzilla", "Bugzilla"], ["build", "Build System"], ["gfx", "Graphics"], ["net", "Networking"],
-                   ["jseng", "JavaScript Engine"], ["layout", "Layout"], ["dom", "DOM and CSS technology"],
-                   ["editor", "Input handling"], ["internals", "Firefox internals"], ["instantbird", "Instantbird"],
-                   ["media", "Media"], ["mobileandroid", "Mobile (Android)"], ["mobileios", "Mobile (iOS)"], ["ff", "Firefox UI"],
-                   ["loop", "Firefox Hello"], ["devtools", "Firefox Developer Tools"], ["releng", "Release Engineering"], ["reporting", "Dashboards and Reporting"],
-                   ["automation", "Test Automation"], ["sync", "Firefox Sync"], ["thunderbird", "Thunderbird"],
-                   ["seamonkey", "SeaMonkey"], ["calendar", "Calendar"], ["b2g", "Boot2Gecko / Firefox OS"], ["webmaker","Webmaker"],
-                   ["appsengineering", "Apps Engineering"], ["servo", "Servo"], ["oneanddone", "One and Done"], ["contentservices","Firefox Interest Dashboard"],
-                   ["addons", "addons.mozilla.org"],
-                   ["marketplace", "Firefox Marketplace"]]);
+    function addGroupedCategories(cats) {
+      var choices = document.getElementById('ba-choices');
+      for (var i = 0; i < cats.length; i++) {
+        var elem = document.createElement('div');
+        elem.setAttribute('class', 'choice-group');
+        var title = document.createElement('div');
+        title.textContent = cats[i].name;
+        elem.appendChild(title);
+        for (var j = 0; j < cats[i].entries.length; j++) {
+          var div = document.createElement('div');
+          elem.appendChild(div);
+          var inp = document.createElement('input');
+          inp.type = "checkbox";
+          inp.onchange = toggleCategory;
+          var details = cats[i].entries[j];
+          inp.setAttribute('id', details[0]);
+          var lab = document.createElement('label');
+          lab.setAttribute('for', details[0]);
+          var text = document.createTextNode(details[1]);
+          lab.appendChild(text);
+          div.appendChild(inp);
+          div.appendChild(lab);
+        }
+        choices.appendChild(elem);
+      }
+    }
+
+    var categories = [
+      {
+        'name': 'Web Platform',
+        'entries': [["a11y", "Accessibility"],
+                    ["gfx", "Graphics"],
+                    ["net", "Networking"],
+                    ["jseng", "JavaScript Engine"],
+                    ["layout", "Layout"],
+                    ["dom", "DOM and CSS technology"],
+                    ["editor", "Input handling"],
+                    ["media", "Media"]]
+      },
+      {
+        'name': 'Firefox',
+        'entries': [["ff", "User interface"],
+                    ["devtools", "Developer Tools"],
+                    ["internals", "Internals"],
+                    ["mobileandroid", "Mobile (Android)"],
+                    ["mobileios", "Mobile (iOS)"],
+                    ["loop", "Hello"],
+                    ["sync", "Sync"]]
+      },
+      {
+        'name': 'Other',
+        'entries': [["b2g", "Boot2Gecko / Firefox OS"],
+                    ["thunderbird", "Thunderbird"],
+                    ["instantbird", "Instantbird"],
+                    ["seamonkey", "SeaMonkey"],
+                    ["calendar", "Calendar"],
+                    ["servo", "Servo"]]
+      },
+      {
+        'name': 'Support',
+        'entries': [["build", "Build System"],
+                    ["releng", "Release Engineering"],
+                    ["reporting", "Dashboards and Reporting"],
+                    ["automation", "Test Automation"],
+                    ["appsengineering", "Apps Engineering"]]
+      },
+      {
+        'name': 'Web Development',
+        'entries': [["bugzilla", "Bugzilla"],
+                    ["oneanddone", "One and Done"],
+                    ["contentservices","Firefox Interest Dashboard"],
+                    ["addons", "addons.mozilla.org"],
+                    ["marketplace", "Firefox Marketplace"],
+                    ["webmaker","Webmaker"]]
+      },
+    ];
+
+    addGroupedCategories(categories);
+
   </script>
-<br><br>
 Do you know: <br><br>
 <script>
     addCategories([["py", "Python"], ["java", "Java"], ["sh", "Shell/Makefile/Autoconf"],
