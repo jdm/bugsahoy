@@ -152,8 +152,8 @@ addComponentMapping('dom', 'Core',
 addComponentMapping('editor', 'Core', ['Editor', 'Selection', 'Keyboard: Navigation',
                                        'Drag and Drop', 'Spelling Checker']);
 addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigation', 'XPCOM',
-                                          'Embedding: APIs', 'Embedding: GRE Core', 'Embedding: GTK Widget',
-                                          'Embedding: Mac', 'Embedding: Packaging',
+                                          'Embedding: APIs', 'Embedding: GRE Core',
+                                          'Embedding: Packaging',
                                           'File Handling', 'Find Backend', 'Gecko Profiler',
                                           'History (Global)', 'Image Blocking', 'Installer', 'IPC',
                                           'MFBT', 'Plug-ins', 'Preferences: Backend', 'Print Preview',
@@ -162,12 +162,15 @@ addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigat
                                           'Rewriting and Analysis', 'Security', 'Security: CAPS', 'Security: PSM',
                                           'Security: S/MIME', 'Security: UI',
                                           'Serializers', 'SQL', 'String', 'XBL', 'XTF', 'XUL',
-                                          'Widget', 'Widget: Android', 'Widget: BeOS', 'Widget: Cocoa',
-                                          'Widget: Gtk', 'Widget: OS/2', 'Widget: Photon', 'Widget: Qt',
-                                          'Widget: Win32', 'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus',
+                                          'Widget', 'Widget: BeOS', 'Widget: OS/2', 'Widget: Photon', 'Widget: Qt',
+                                          'XP Toolkit/Widgets: XUL', 'XP Toolkit/Widgets: Menus',
                                           'Identity', 'Localization']);
 addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
+addComponentMapping('internals-android', 'Core', ['Widget: Android']);
+addComponentMapping('internals-gtk', 'Core', ['Embedding: GTK Widget', 'Widget: Gtk']);
+addComponentMapping('internals-osx', 'Core', ['Embedding: Mac', 'Widget: Cocoa']);
+addComponentMapping('internals-win32', 'Core', ['Widget: Win32']);
 addComponentMapping('instantbird', 'Instantbird');
 addComponentMapping('instantbird', 'Chat Core');
 addComponentMapping('mobileandroid', 'Fennec');
