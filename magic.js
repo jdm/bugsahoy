@@ -187,6 +187,7 @@ addComponentMapping('jseng', 'Core',
                      'XPConnect']);
 addComponentMapping('media', 'Core', ['Video/Audio', 'WebRTC', 'WebRTC: Audio/Video',
                                       'WebRTC: Signalling']);
+addComponentMapping('webextensions', 'Toolkit', ['WebExtensions']);
 addComponentMapping('ff', 'Firefox');
 addComponentMapping('ff', 'Toolkit');
 addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
