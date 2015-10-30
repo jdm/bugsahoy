@@ -167,6 +167,7 @@ addComponentMapping('internals', 'Core', ['General', 'Widget', 'Document Navigat
                                           'Identity', 'Localization']);
 addComponentMapping('internals', 'NSPR');
 addComponentMapping('internals', 'NSS');
+addComponentMapping('internals', 'Toolkit', ['Telemetry', 'Add-ons Manager']);
 addComponentMapping('internals-android', 'Core', ['Widget: Android']);
 addComponentMapping('internals-gtk', 'Core', ['Embedding: GTK Widget', 'Widget: Gtk']);
 addComponentMapping('internals-osx', 'Core', ['Embedding: Mac', 'Widget: Cocoa']);
