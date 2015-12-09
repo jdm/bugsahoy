@@ -313,6 +313,41 @@ addSimpleMapping('langs', 'html', 'Developer Ecosystem');
 
 addGithubComponentMapping('servo', ['servo/servo'], 'E-easy');
 
+addComponentMapping('mdn', 'Developer Documentation', ['Accessibility',
+                                                       'Add-ons',
+                                                       'API: CSSOM',
+                                                       'API: Device API',
+                                                       'API: DOM',
+                                                       'API: File API',
+                                                       'API: HTML',
+                                                       'API: IndexedDB',
+                                                       'API: Miscellaneous',
+                                                       'API: SVG',
+                                                       'API: Web Animations',
+                                                       'API: Web Audio',
+                                                       'API: Web Sockets',
+                                                       'API: Web Workers',
+                                                       'API: WebRTC',
+                                                       'Apps',
+                                                       'CSS',
+                                                       'Developer Tools',
+                                                       'Emscripten',
+                                                       'Firefox OS',
+                                                       'Games',
+                                                       'General',
+                                                       'HTML',
+                                                       'JavaScript',
+                                                       'Learning Area',
+                                                       'Localization',
+                                                       'Macros/Templates',
+                                                       'Marketplace',
+                                                       'MathML',
+                                                       'MDN Meta Docs',
+                                                       'Mozilla Platform',
+                                                       'Protocols',
+                                                       'Security',
+                                                       'SVG']);
+
 addLanguageMapping('py', 'py');
 addLanguageMapping('sh', 'shell');
 addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
