@@ -213,6 +213,7 @@ addComponentMapping('devtools', 'Firefox',
                      'Developer Tools: Style Editor']);
 addComponentMapping('releng', 'mozilla.org', ['Hg: Customizations']);
 addComponentMapping('releng', 'Release Engineering');
+addComponentMapping('taskcluster', 'TaskCluster');
 addComponentMapping('reporting', 'Tree Management');
 
 // Mappings for various automation related tasks
