@@ -370,6 +370,7 @@ addSearchMapping('ownership', 'unowned',
                  {assigned_to: ['nobody@mozilla.org', 'general@js.bugs']}
                 );
 addSearchMapping('simple', 'simple', {status_whiteboard: 'good first bug'});
+addSearchMapping('simple', 'simple', {keywords: 'good-first-bug'});
 addSearchMapping('diamond', 'diamond', {status_whiteboard: 'diamond'});
 
 var interestingComponents = [];
