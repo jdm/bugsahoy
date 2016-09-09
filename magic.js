@@ -246,8 +246,6 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                            'py': 'python',
                            'sh': 'shell' });
 
-addComponentMapping('oneanddone','Mozilla QA', 'One and Done');
-
 addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
                                                  'Firefox Sync: Build',
                                                  'Firefox Sync: Crypto',
