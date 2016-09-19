@@ -188,7 +188,15 @@ addComponentMapping('jseng', 'Core',
                      'XPConnect']);
 addComponentMapping('media', 'Core', ['Video/Audio', 'WebRTC', 'WebRTC: Audio/Video',
                                       'WebRTC: Signalling']);
-addComponentMapping('webextensions', 'Toolkit', ['WebExtensions']);
+addComponentMapping('webextensions', 'Toolkit',
+                    ['WebExtensions: Android',
+                     'WebExtensions: Compatibility',
+                     'WebExtensions: Developer tools',
+                     'WebExtensions: Experiments',
+                     'WebExtensions: Frontend',
+                     'WebExtensions: General',
+                     'WebExtensions: Request Handling',
+                     'WebExtensions: Untriaged']);
 addComponentMapping('ff', 'Firefox');
 addComponentMapping('ff', 'Toolkit');
 addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
