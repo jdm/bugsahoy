@@ -17,148 +17,150 @@
 <div id="ba-total-header" role="banner">
 Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
 </div>
-<div id="ba-content">
-  Are you interested in:<br><br>
-<div id="ba-choices" role="navigation">
-  <script>
-    function addCategories(cats) {
-      var choices = document.getElementById('ba-choices');
-      for (var i = 0; i < cats.length; i++) {
-        var elem = document.createElement('div');
-        var inp = document.createElement('input');
-        inp.type = "checkbox";
-        inp.onchange = toggleCategory;
-        inp.setAttribute('id', cats[i][0]);
-        var lab = document.createElement('label');
-        lab.setAttribute('for', cats[i][0]);
-        var text = document.createTextNode(cats[i][1]);
-        lab.appendChild(text);
-        elem.appendChild(inp);
-        elem.appendChild(lab);
-        choices.appendChild(elem);
-      }
-    }
 
-    function addGroupedCategories(cats) {
-      var choices = document.getElementById('ba-choices');
-      for (var i = 0; i < cats.length; i++) {
-        var elem = document.createElement('div');
-        elem.setAttribute('class', 'choice-group');
-        var title = document.createElement('div');
-        title.textContent = cats[i].name;
-        elem.appendChild(title);
-        for (var j = 0; j < cats[i].entries.length; j++) {
-          var div = document.createElement('div');
-          elem.appendChild(div);
+<div id="ba-content">
+  <div id="ba-choices" role="navigation">
+    <p class="choice-title">Are you interested in:</p>
+    <script>
+      function addCategories(cats) {
+        var choices = document.getElementById('ba-choices');
+        choices.setAttribute('class', 'choice-group');
+        for (var i = 0; i < cats.length; i++) {
+          var elem = document.createElement('div');
           var inp = document.createElement('input');
           inp.type = "checkbox";
           inp.onchange = toggleCategory;
-          var details = cats[i].entries[j];
-          inp.setAttribute('id', details[0]);
+          inp.setAttribute('id', cats[i][0]);
           var lab = document.createElement('label');
-          lab.setAttribute('for', details[0]);
-          var text = document.createTextNode(details[1]);
+          lab.setAttribute('for', cats[i][0]);
+          var text = document.createTextNode(cats[i][1]);
           lab.appendChild(text);
-          div.appendChild(inp);
-          div.appendChild(lab);
+          elem.appendChild(inp);
+          elem.appendChild(lab);
+          choices.appendChild(elem);
         }
-        choices.appendChild(elem);
       }
-    }
 
-    var categories = [
-      {
-        'name': 'Web Platform',
-        'entries': [["a11y", "Accessibility"],
-                    ["gfx", "Graphics"],
-                    ["net", "Networking"],
-                    ["jseng", "JavaScript Engine"],
-                    ["layout", "Layout"],
-                    ["dom", "DOM and CSS technology"],
-                    ["editor", "Input handling"],
-                    ["media", "Media"]]
-      },
-      {
-        'name': 'Firefox',
-        'entries': [["ff", "User interface"],
-                    ["devtools", "Developer Tools"],
-                    ["internals", "Internals"],
-                    ["internals-android", "Internals (Android)"],
-                    ["internals-gtk", "Internals (GTK)"],
-                    ["internals-osx", "Internals (OSX)"],
-                    ["internals-win32", "Internals (Windows)"],
-                    ["mobileandroid", "Mobile (Android)"],
-                    ["mobileios", "Mobile (iOS)"],
-                    ["sync", "Sync"],
-                    ["webextensions", "Web Extensions"]]
-      },
-      {
-        'name': 'Other',
-        'entries': [["b2g", "Boot2Gecko / Firefox OS"],
-                    ["thunderbird", "Thunderbird"],
-                    ["instantbird", "Instantbird"],
-                    ["seamonkey", "SeaMonkey"],
-                    ["calendar", "Calendar"],
-                    ["servo", "Servo"],
-                    ["mdn", "MDN / Developer Documentation"]]
-      },
-      {
-        'name': 'Support',
-        'entries': [["build", "Build System"],
-                    ["releng", "Release Engineering"],
-                    ["taskcluster", "TaskCluster"],
-                    ["reporting", "Dashboards and Reporting"],
-                    ["automation", "Test Automation"],
-                    ["appsengineering", "Apps Engineering"]]
-      },
-      {
-        'name': 'Web Development',
-        'entries': [["bugzilla", "Bugzilla"],
-                    ["contentservices","Firefox Interest Dashboard"],
-                    ["addons", "addons.mozilla.org"],
-                    ["marketplace", "Firefox Marketplace"],
-                    ["webmaker","Webmaker"]]
-      },
-    ];
+      function addGroupedCategories(cats) {
+        var choices = document.getElementById('ba-choices');
+        for (var i = 0; i < cats.length; i++) {
+          var elem = document.createElement('div');
+          elem.setAttribute('class', 'choice-group');
+          var title = document.createElement('div');
+          title.textContent = cats[i].name;
+          title.setAttribute('class', 'choice-group-title');
+          elem.appendChild(title);
+          for (var j = 0; j < cats[i].entries.length; j++) {
+            var div = document.createElement('div');
+            elem.appendChild(div);
+            var inp = document.createElement('input');
+            inp.type = "checkbox";
+            inp.onchange = toggleCategory;
+            var details = cats[i].entries[j];
+            inp.setAttribute('id', details[0]);
+            var lab = document.createElement('label');
+            lab.setAttribute('for', details[0]);
+            var text = document.createTextNode(details[1]);
+            lab.appendChild(text);
+            div.appendChild(inp);
+            div.appendChild(lab);
+          }
+          choices.appendChild(elem);
+        }
+      }
 
-    addGroupedCategories(categories);
+      var categories = [
+        {
+          'name': 'Web Platform',
+          'entries': [["a11y", "Accessibility"],
+                      ["gfx", "Graphics"],
+                      ["net", "Networking"],
+                      ["jseng", "JavaScript Engine"],
+                      ["layout", "Layout"],
+                      ["dom", "DOM and CSS technology"],
+                      ["editor", "Input handling"],
+                      ["media", "Media"]]
+        },
+        {
+          'name': 'Firefox',
+          'entries': [["ff", "User interface"],
+                      ["devtools", "Developer Tools"],
+                      ["internals", "Internals"],
+                      ["internals-android", "Internals (Android)"],
+                      ["internals-gtk", "Internals (GTK)"],
+                      ["internals-osx", "Internals (OSX)"],
+                      ["internals-win32", "Internals (Windows)"],
+                      ["mobileandroid", "Mobile (Android)"],
+                      ["mobileios", "Mobile (iOS)"],
+                      ["sync", "Sync"],
+                      ["webextensions", "Web Extensions"]]
+        },
+        {
+          'name': 'Other',
+          'entries': [["b2g", "Boot2Gecko / Firefox OS"],
+                      ["thunderbird", "Thunderbird"],
+                      ["instantbird", "Instantbird"],
+                      ["seamonkey", "SeaMonkey"],
+                      ["calendar", "Calendar"],
+                      ["servo", "Servo"],
+                      ["mdn", "MDN / Developer Documentation"]]
+        },
+        {
+          'name': 'Support',
+          'entries': [["build", "Build System"],
+                      ["releng", "Release Engineering"],
+                      ["taskcluster", "TaskCluster"],
+                      ["reporting", "Dashboards and Reporting"],
+                      ["automation", "Test Automation"],
+                      ["appsengineering", "Apps Engineering"]]
+        },
+        {
+          'name': 'Web Development',
+          'entries': [["bugzilla", "Bugzilla"],
+                      ["contentservices","Firefox Interest Dashboard"],
+                      ["addons", "addons.mozilla.org"],
+                      ["marketplace", "Firefox Marketplace"],
+                      ["webmaker","Webmaker"]]
+        },
+      ];
 
-  </script>
-Do you know: <br><br>
-<script>
-    addCategories([["py", "Python"], ["java", "Java"], ["sh", "Shell/Makefile/Autoconf"],
-                   ["js", "JavaScript"], ["cpp", "C/C++"], ["html", "HTML/CSS"], ["xml", "XML/XUL"],
-                   ["perl", "Perl"]]);
-</script>
-<br><br>
-Display only: <br><br>
-<script>
-    addCategories([["unowned", "Unassigned bugs"],
-                   ["simple", "Simple bugs"],
-		   ["diamond", "Diamond Bugs"]]);
-</script>
-</div>
+      addGroupedCategories(categories);
 
-<div id="bugs" role="main">
-  <div id="ba-header" role="log">Results <span id="total"></span> <img id="throbber" alt="Fetching results" src="loading.gif" style="visibility: hidden; float: right"></div>
-  <div id="simple-hint">Do you want to display only simple bugs?
-    <input type="button" value="No" onclick="$(this.parentNode).fadeOut()">
-    <input type="button" value="Yes" onclick="document.getElementById('simple').checked = true; toggleCategoryById('simple');">
+    </script>
+    <p class="choice-title">Do you know:</p>
+    <script>
+        addCategories([["py", "Python"], ["java", "Java"], ["sh", "Shell/Makefile/Autoconf"],
+                       ["js", "JavaScript"], ["cpp", "C/C++"], ["html", "HTML/CSS"], ["xml", "XML/XUL"],
+                       ["perl", "Perl"]]);
+    </script>
+    <p class="choice-title">Display only:</p>
+    <script>
+        addCategories([["unowned", "Unassigned bugs"],
+                       ["simple", "Simple bugs"],
+                       ["diamond", "Diamond Bugs"]]);
+    </script>
   </div>
-  <div id="bugs_content">
-    <div class="bug"><span>No categories specified.</span></div>
+
+  <div id="bugs" role="main">
+    <div id="ba-header" role="log">Results <span id="total"></span> <img id="throbber" alt="Fetching results" src="loading.gif" style="visibility: hidden; float: right"></div>
+    <div id="simple-hint">Do you want to display only simple bugs?
+      <input type="button" value="No" onclick="$(this.parentNode).fadeOut()">
+      <input type="button" value="Yes" onclick="document.getElementById('simple').checked = true; toggleCategoryById('simple');">
+    </div>
+    <div id="bugs_content">
+      <div class="bug"><span>No categories specified.</span></div>
+    </div>
   </div>
-</div>
 
-</div>
+  <aside class="aside">
+    <ul id="ba-extra" role="complementary"></ul>
 
-<ul id="ba-extra" role="complementary">
-</ul>
-
- <div class="ba-twitter">
-  <a class="twitter-timeline" swidth="500"
-  height="300" href="https://twitter.com/StartMozilla" data-widget-id="514951453161422848">Tweets by @StartMozilla</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    <div class="ba-twitter">
+      <a class="twitter-timeline" swidth="500"
+      height="300" href="https://twitter.com/StartMozilla" data-widget-id="514951453161422848">Tweets by @StartMozilla</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+  </aside>
 </div>
 
 <script>
@@ -224,8 +226,5 @@ Display only: <br><br>
     <i><a href="https://wiki.mozilla.org/BugsAhoy">Bugs Ahoy!</a></i> <span>is written by <a href="https://mozillians.org/en-US/u/jdm/">Josh Matthews</a>
 (get the <a href="http://github.com/jdm/bugsahoy/">source</a>!)</span>
 </div>
-<!--OHHDEAR-->
-<center><div id="help"></div>
-</center>
 </body>
 </html>
