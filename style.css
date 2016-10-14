@@ -5,28 +5,33 @@ body {
 }
 
 #ba-content {
-    width: 100%;
-/*  width: 70%;
-  left: 500px;
-top: 100px;*/
-  /*margin-left: -35%;*/
-  /*border: red solid 1px;*/
+  margin: 0 auto;
+  max-width: 1170px;
 }
 
 #ba-choices {
     float: left;
-    /*border: green 1px solid;*/
+    width: 18%;
 }
 
 #ba-choices div {
     width: 100%;
 }
 
-.choice-group {
-    padding-bottom: 1.5em;
+.choice-title {
+    margin-bottom: 1em;
+    margin-top: 2em;
 }
 
-.choice-group div:first-of-type {
+.choice-title:first-child {
+  margin-top: 0;
+}
+
+.choice-group {
+    margin-bottom: 1.5em;
+}
+
+.choice-group-title {
     font-weight: bold;
 }
 
@@ -36,11 +41,11 @@ top: 100px;*/
 
 #bugs {
   float: left;
-  width: 550px;
   font-size: 1.02em;
-  margin-left: 5.2em;  
+  margin-left: 3.5%;
   box-shadow: rgba(0,0,0,.2) 0 .15em 0.6em;
   border-radius: 4px 4px 0 0;
+  width: 50%;
 }
 
 #ba-header {
@@ -61,42 +66,32 @@ div .bug {
       padding-left: 14px;
 }
 
-/*#help {
-    background: #F9F9F9;
-    border: 1px black dashed;
-    width: 40%;
-    float: right;
-    padding: 8px;
-    display: none;   
-}*/
-
 a.diamond-bug {
   background-color: yellow;
 }
 
+.aside {
+  float: right;
+  margin-left: 3.5%;
+  width: 25%;
+}
+
 #ba-extra {
     list-style-type: none;
-    margin-top: 0;
+    margin: 0;
+    padding: 0;
 }
 
 #ba-extra li {
-  float:left;
   font-size: 1.02em;
-  margin-left: 5.2em;  
   box-shadow: rgba(0,0,0,.2) 0 .15em 0.6em;
   border-radius: 4px 4px 0 0;
   text-align: center;
-  width: 25%;
   display: none;
   margin-bottom: 2em;
   background: none;
   padding-left: 0px;
-}
-
-.ba-twitter {
-      float: left;
-      width: 25%;
-      margin-left: 5.2em;
+  width: 100%;
 }
 
 .ba-extra_header {
