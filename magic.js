@@ -223,7 +223,6 @@ addComponentMapping('taskcluster', 'TaskCluster');
 addComponentMapping('reporting', 'Tree Management');
 
 // Mappings for various automation related tasks
-addComponentMapping('automation', 'Firefox OS', 'Gaia::UI Tests');
 addComponentMapping('automation', 'Mozilla QA', ['Firefox UI Tests',
                                                  'Infrastructure',
                                                  'Mozmill Tests']);
@@ -262,9 +261,6 @@ addComponentMapping('thunderbird', 'Thunderbird');
 addComponentMapping('thunderbird', 'MailNews Core');
 addComponentMapping('seamonkey', 'SeaMonkey');
 addComponentMapping('calendar', 'Calendar');
-addComponentMapping('b2g', 'Firefox OS');
-addComponentMapping('b2g', 'Core', ['DOM: Device Interfaces', 'Hardware Abstraction Layer (HAL)']);
-addGithubComponentMapping('b2g', 'mozilla-b2g/gaia', 'mentored');
 addComponentMapping('marketplace', 'Marketplace');
 addComponentMapping('contentservices', 'Content Services', ['Interest Dashboard']);
 addComponentMapping('webmaker', 'Webmaker', ['Badges',
@@ -337,7 +333,6 @@ addComponentMapping('mdn', 'Developer Documentation', ['Accessibility',
                                                        'CSS',
                                                        'Developer Tools',
                                                        'Emscripten',
-                                                       'Firefox OS',
                                                        'Games',
                                                        'General',
                                                        'HTML',
