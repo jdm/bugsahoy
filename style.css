@@ -144,15 +144,25 @@ a.diamond-bug {
     font-weight: normal;
 }
 
-#simple-hint {
+.simple-hint {
     background-color: #F7F7C0;
     overflow: hidden;
-    font-size: 1.1em;
     border: 1px solid #ccc;
     padding: 9px 14px;
     display: none;
 }
 
-#simple-hint input {
+.simple-hint-text {
+    float: left;
+    font-size: 1.1em;
+    line-height: 1.9em;
+}
+
+.simple-hint-buttons {
     float: right;
+    white-space: nowrap;
+}
+
+.simple-hint-button {
+    height: 1.9em:
 }

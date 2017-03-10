@@ -143,9 +143,12 @@ Bugs Ahoy! <div><i>these bugs are relevant to my interests</i></div>
 
   <div id="bugs" role="main">
     <div id="ba-header" role="log">Results <span id="total"></span> <img id="throbber" alt="Fetching results" src="loading.gif" style="visibility: hidden; float: right"></div>
-    <div id="simple-hint">Do you want to display only simple bugs?
-      <input type="button" value="No" onclick="$(this.parentNode).fadeOut()">
-      <input type="button" value="Yes" onclick="document.getElementById('simple').checked = true; toggleCategoryById('simple');">
+    <div id="simple-hint" class="simple-hint">
+      <div class="simple-hint-text">Do you want to display only simple bugs?</div>
+      <div class="simple-hint-buttons">
+        <input class="simple-hint-button" type="button" value="Yes" onclick="document.getElementById('simple').checked = true; toggleCategoryById('simple');">
+        <input class="simple-hint-button" type="button" value="No" onclick="$(this.parentNode).fadeOut()">
+      </div>
     </div>
     <div id="bugs_content">
       <div class="bug"><span>No categories specified.</span></div>
