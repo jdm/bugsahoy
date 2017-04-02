@@ -199,7 +199,7 @@ addComponentMapping('webextensions', 'Toolkit',
                      'WebExtensions: Untriaged']);
 addComponentMapping('ff', 'Firefox');
 addComponentMapping('ff', 'Toolkit');
-addComponentMapping('ff', 'Mozilla Services', 'Firefox Sync: UI');
+addComponentMapping('ff', 'Cloud Services', 'Firefox Sync: UI');
 addComponentMapping('ff', 'Input', ['Frontend', 'General']);
 addComponentMapping('devtools', 'Firefox',
                     ['Developer Tools',
@@ -251,12 +251,14 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                            'py': 'python',
                            'sh': 'shell' });
 
-addComponentMapping('sync', 'Mozilla Services', ['Firefox Sync: Backend',
-                                                 'Firefox Sync: Build',
-                                                 'Firefox Sync: Crypto',
-                                                 'Firefox Sync: UI',
-                                                 'Android Sync',
-                                                 'Server: Sync']);
+addComponentMapping('sync', 'Cloud Services', ['Firefox Sync: Backend',
+                                               'Firefox Sync: Build',
+                                               'Firefox Sync: Crypto',
+                                               'Firefox Sync: UI',
+                                               'Server: Sync']);
+addComponentMapping('sync', 'Firefox', ['Sync']);
+addComponentMapping('sync', 'Android Background Services', ['Android Sync']);
+
 addComponentMapping('thunderbird', 'Thunderbird');
 addComponentMapping('thunderbird', 'MailNews Core');
 addComponentMapping('seamonkey', 'SeaMonkey');
@@ -353,10 +355,10 @@ addLanguageMapping('sh', 'shell');
 addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
 addSimpleMapping('langs', 'sh', 'MailNews Core', 'Build Config');
 addSimpleMapping('langs', 'java', 'Core', 'Widget: Android');
-addSimpleMapping('langs', 'java', 'Mozilla Services', 'Android Sync');
+addSimpleMapping('langs', 'java', 'Android Background Services', 'Android Sync');
 addLanguageMapping('java', 'java]');
 addLanguageMapping('js', 'js');
-addSimpleMapping('langs', 'js', 'Mozilla Services', 'Firefox Sync: Backend');
+addSimpleMapping('langs', 'js', 'Cloud Services', 'Firefox Sync: Backend');
 addLanguageMapping('cpp', 'c++');
 addSimpleMapping('langs', 'perl', 'Bugzilla');
 addSimpleMapping('langs', 'perl', 'bugzilla.mozilla.org');
