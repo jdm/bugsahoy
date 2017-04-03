@@ -223,12 +223,9 @@ addComponentMapping('taskcluster', 'TaskCluster');
 addComponentMapping('reporting', 'Tree Management');
 
 // Mappings for various automation related tasks
-addComponentMapping('automation', 'Mozilla QA', ['Firefox UI Tests',
-                                                 'Infrastructure',
-                                                 'Mozmill Tests']);
 addComponentMapping('automation', 'Testing');
 addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
-					 'automatedtester/automation-services-bot',
+                                         'automatedtester/automation-services-bot',
                                          'automatedtester/powerball-platform',
                                          'automatedtester/testdaybot',
                                          'automatedtester/unittest-zero',
@@ -240,11 +237,8 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                                          'mozilla/moz-grid-config',
                                          'mozilla/mozdownload',
                                          'mozilla/mozmill-ci',
-                                         'mozilla/mozmill-automation',
-                                         'mozilla/mozmill-dashboard',
-                                         'mozilla/mozmill-environment',
                                          'mozilla/nightlytt',
-                                         'whimboo/mozmill-crowd',], 'mentored',
+                                         ], 'mentored',
                           {'css': 'css',
                            'html': 'html',
                            'js': 'javascript',
