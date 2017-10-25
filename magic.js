@@ -346,6 +346,7 @@ addComponentMapping('mdn', 'Developer Documentation', ['Accessibility',
                                                        'SVG']);
 
 addLanguageMapping('py', 'py');
+addLanguageMapping('rust', 'rust');
 addLanguageMapping('sh', 'shell');
 addSimpleMapping('langs', 'sh', 'Core', 'Build Config');
 addSimpleMapping('langs', 'sh', 'MailNews Core', 'Build Config');
