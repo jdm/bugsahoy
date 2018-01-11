@@ -245,11 +245,19 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                            'js': 'javascript',
                            'py': 'python',
                            'sh': 'shell' });
-addGithubComponentMapping('automation', ['marco-c/grcov',
-                                         'marco-c/code-coverage-reports'],
-                          'good-first-bug');
+addGithubComponentMapping('automation', ['marco-c/grcov'],
+                          'good-first-bug',
+                          {'rust': 'rust',
+                           'cpp': 'cpp' })
+addGithubComponentMapping('automation', ['marco-c/code-coverage-reports'],
+                          'good-first-bug',
+                          {'css': 'css',
+                           'html': 'html',
+                           'js': 'javascript',
+                           'py': 'python' });
 addGithubComponentMapping('automation', ['mozilla-releng/services'],
-                          '3.skill: good-first-bug');
+                          '3.skill: good-first-bug',
+                          {'py': '5.lang: python' });
 
 addComponentMapping('sync', 'Cloud Services', ['Firefox Sync: Backend',
                                                'Firefox Sync: Build',
