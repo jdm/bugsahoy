@@ -17,13 +17,10 @@ print "Content-Type: text/html;charset=utf-8"
 print
 
 form = cgi.FieldStorage()
-# Need to un-encode the full URL so it can be used
-url = urllib2.unquote(form.getfirst('url', ''))
-# Extract the query parameters from the partial URL
-params_start = url.find('?') + 1
-params = url[params_start:]
-# Encode the query parameters so that spaces are correctly preserved
-url = url[:params_start] + urllib2.quote(params)
+name = form.getfirst('name', '')
+user = form.getfirst('user', '')
+labels = urllib2.unquote(form.getfirst('labels', ''))
+url = 'https://api.github.com/repos/%s/%s/issues?labels=%s' % (user, name, urllib2.quote(labels))
 
 config = ConfigParser.RawConfigParser()
 config.read('./config')
@@ -39,9 +36,10 @@ data = form.getfirst('data', None)
 method = form.getfirst('method', 'GET')
 
 opener = urllib2.build_opener(urllib2.HTTPHandler)
-req = urllib2.Request('https://api.github.com/%s' % url, data, {'Accept': 'application/vnd.github.raw',
-                                                                'Accept-Encoding': 'gzip',
-                                                                'Content-Type': 'application/x-www-form-urlencoded'})
+#print "Fetching " + url
+req = urllib2.Request(url, data, {'Accept': 'application/vnd.github.raw',
+                                  'Accept-Encoding': 'gzip',
+                                  'Content-Type': 'application/x-www-form-urlencoded'})
 req.get_method = lambda: method
 if token:
     req.add_header("Authorization", "token %s" % token)

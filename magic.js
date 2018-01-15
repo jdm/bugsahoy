@@ -624,9 +624,8 @@ function retrieveResults(category) {
        var curMap = ghMapping[i];
        var user = curMap.repo.split('/')[0];
        var name = curMap.repo.split('/')[1];
-       var apiCall = 'repos/' + user + '/' + name + '/issues?labels=' + curMap.tag;
-       $.getJSON('cgi-bin/githubapi.cgi?url=' + encodeURIComponent(apiCall),
-                null, function(data) {
+       var params = 'user=' + user + '&name=' + name + '&labels=' + encodeURIComponent(curMap.tag);
+       $.getJSON('cgi-bin/githubapi.cgi?' + params, null, function(data) {
          for (var d in data) {
            data[d].id = data[d].number;
            data[d].assigned_to = data.assignee || {real_name: "nobody"};
