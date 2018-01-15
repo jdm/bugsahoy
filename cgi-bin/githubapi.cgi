@@ -17,7 +17,13 @@ print "Content-Type: text/html;charset=utf-8"
 print
 
 form = cgi.FieldStorage()
+# Need to un-encode the full URL so it can be used
 url = urllib2.unquote(form.getfirst('url', ''))
+# Extract the query parameters from the partial URL
+params_start = url.find('?') + 1
+params = url[params_start:]
+# Encode the query parameters so that spaces are correctly preserved
+url = url[:params_start] + urllib2.quote(params)
 
 config = ConfigParser.RawConfigParser()
 config.read('./config')
