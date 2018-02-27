@@ -256,8 +256,8 @@ addGithubComponentMapping('automation', ['marco-c/code-coverage-reports'],
                            'js': 'javascript',
                            'py': 'python' });
 addGithubComponentMapping('automation', ['mozilla-releng/services'],
-                          '3.skill: good-first-bug',
-                          {'py': '5.lang: python' });
+                          'skill:good-first-bug',
+                          {'py': 'lang:python' });
 
 addComponentMapping('sync', 'Cloud Services', ['Firefox Sync: Backend',
                                                'Firefox Sync: Build',
