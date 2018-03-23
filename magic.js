@@ -259,7 +259,12 @@ addGithubComponentMapping('automation', ['marco-c/code-coverage-reports',
                            'py': 'python' });
 addGithubComponentMapping('automation', ['mozilla-releng/services'],
                           'skill:good-first-bug',
-                          {'py': 'lang:python' });
+                          {'css': 'lang:css',
+                           'html': 'lang:html',
+                           'js': 'lang:javascript',
+                           'nix': 'lang:nix',
+                           'sh': 'lang:shell',
+                           'py': 'lang:python' });
 
 addComponentMapping('sync', 'Cloud Services', ['Firefox Sync: Backend',
                                                'Firefox Sync: Build',
@@ -377,6 +382,7 @@ addLanguageMapping('html', 'html');
 addLanguageMapping('html', 'css');
 addLanguageMapping('xml', 'xul');
 addLanguageMapping('xml', 'xml');
+addLanguageMapping('nix', 'nix');
 
 addSearchMapping('ownership', 'unowned',
                  {assigned_to: ['nobody@mozilla.org', 'general@js.bugs']}
