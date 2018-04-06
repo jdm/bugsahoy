@@ -166,3 +166,9 @@ a.diamond-bug {
 .simple-hint-button {
     height: 1.9em:
 }
+
+.call-to-action {
+    border: 1px solid #ccc;
+    box-shadow: rgba(0,0,0,.2) 0 .15em 0.6em;
+    padding: 0.5em;
+}
