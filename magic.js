@@ -278,7 +278,6 @@ addComponentMapping('thunderbird', 'Thunderbird');
 addComponentMapping('thunderbird', 'MailNews Core');
 addComponentMapping('seamonkey', 'SeaMonkey');
 addComponentMapping('calendar', 'Calendar');
-addComponentMapping('marketplace', 'Marketplace');
 addComponentMapping('contentservices', 'Content Services', ['Interest Dashboard']);
 addComponentMapping('webmaker', 'Webmaker', ['Badges',
                                              'Community',
