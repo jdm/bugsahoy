@@ -175,7 +175,7 @@ addComponentMapping('internals-osx', 'Core', ['Embedding: Mac', 'Widget: Cocoa']
 addComponentMapping('internals-win32', 'Core', ['Widget: Win32']);
 addComponentMapping('instantbird', 'Instantbird');
 addComponentMapping('instantbird', 'Chat Core');
-addGithubComponentMapping('focusandroid', ['mozilla-mobile/focus-android'], 'good first issue');
+addGithubComponentMapping('focusandroid', ['mozilla-mobile/focus-android'], ['good first issue', 'help wanted']);
 addComponentMapping('mobileandroid', 'Fennec');
 addComponentMapping('mobileandroid', 'Firefox for Android');
 addComponentMapping('mobileandroid', 'Core', ['Widget: Android', 'mozglue']);
