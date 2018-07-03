@@ -238,7 +238,7 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                            'js': 'javascript',
                            'py': 'python',
                            'sh': 'shell' });
-addGithubComponentMapping('automation', ['marco-c/grcov'],
+addGithubComponentMapping('automation', ['mozilla/grcov'],
                           'good-first-bug',
                           {'rust': 'rust',
                            'cpp': 'cpp' })
