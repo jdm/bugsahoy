@@ -238,6 +238,9 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                            'js': 'javascript',
                            'py': 'python',
                            'sh': 'shell' });
+addGithubComponentMapping('automation', ['mozilla/relman-auto-nag/'],
+                          'good-first-bug',
+                          {'py': 'python'})
 addGithubComponentMapping('automation', ['marco-c/grcov'],
                           'good-first-bug',
                           {'rust': 'rust',
