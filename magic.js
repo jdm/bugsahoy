@@ -237,10 +237,13 @@ addGithubComponentMapping('automation', ['armenzg/mozilla_ci_tools',
                            'js': 'javascript',
                            'py': 'python',
                            'sh': 'shell' });
+addGithubComponentMapping('automation', ['mozilla/relman-auto-nag/'],
+                          'good-first-bug',
+                          {'py': 'python'});
 addGithubComponentMapping('automation', ['mozilla/grcov'],
                           'good-first-bug',
                           {'rust': 'rust',
-                           'cpp': 'cpp' })
+                           'cpp': 'cpp' });
 addGithubComponentMapping('automation', ['marco-c/code-coverage-reports',
                                          'marco-c/code-coverage-addon',
                                         ],
